@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 243.4 100% 95%;
+    --foreground: 243.4 5% 0%;
+    --card: 243.4 50% 90%;
+    --card-foreground: 243.4 5% 10%;
+    --popover: 243.4 100% 95%;
+    --popover-foreground: 243.4 100% 0%;
+    --primary: 243.4 75.4% 58.6%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 243.4 30% 70%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 205.4 30% 85%;
+    --muted-foreground: 243.4 5% 35%;
+    --accent: 205.4 30% 80%;
+    --accent-foreground: 243.4 5% 10%;
+    --destructive: 0 100% 30%;
+    --destructive-foreground: 243.4 5% 90%;
+    --border: 243.4 30% 50%;
+    --input: 243.4 30% 18%;
+    --ring: 243.4 75.4% 58.6%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 243.4 50% 5%;
+    --foreground: 243.4 5% 90%;
+    --card: 243.4 50% 0%;
+    --card-foreground: 243.4 5% 90%;
+    --popover: 243.4 50% 5%;
+    --popover-foreground: 243.4 5% 90%;
+    --primary: 243.4 75.4% 58.6%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 243.4 30% 10%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 205.4 30% 15%;
+    --muted-foreground: 243.4 5% 60%;
+    --accent: 205.4 30% 15%;
+    --accent-foreground: 243.4 5% 90%;
+    --destructive: 0 100% 30%;
+    --destructive-foreground: 243.4 5% 90%;
+    --border: 243.4 30% 18%;
+    --input: 243.4 30% 18%;
+    --ring: 243.4 75.4% 58.6%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-gradient-to-tl from-background via-secondary/80 to-background/95  text-foreground;
+  }
+
+  .bggrad {
+    @apply bg-gradient-to-tl from-background via-secondary/80 to-background/95;
+  }
+}
+
+html,
+body,
+:root {
+  font-family: "Inter Variable", sans-serif;
+}
+
+/*  scroll bar styling  */
+::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.4rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: hsl(0 201% 100%);
+  border-radius: 0.2rem;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: hsl(240 10% 3.9%);
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: hsl(240 10% 3.9%);
+  border-radius: 5px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background-color: hsl(0 0% 100%);
+}
+
+/* Handle on hover */
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: hsl(240, 6%, 51%);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(214, 3%, 41%);
+}
