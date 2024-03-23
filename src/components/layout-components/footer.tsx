@@ -8,6 +8,9 @@ import { FC } from "react";
 import Logo from "./logo";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Button } from "../ui/button";
+import { navLink } from "@/utils/nav-link";
+import { Link } from "react-router-dom";
+import ContactUs from "../landing-components/contact-us";
 
 interface FooterProps {}
 
@@ -25,14 +28,23 @@ const Footer: FC<FooterProps> = ({}) => {
           <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
             <Card className="lg:w-1/4 md:w-1/2 w-full px-4 flex justify-center items-center flex-col bg-inherit border-none shadow-none ">
               <CardHeader>
-                <CardTitle>CATEGORIES</CardTitle>
+                <CardTitle>Main Links </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className=" flex justify-center items-center flex-col gap-y-1">
-                  <Button variant={"link"}> Link One </Button>
-                  <Button variant={"link"}> Link two </Button>
-                  <Button variant={"link"}> Link three </Button>
-                  <Button variant={"link"}> Link four </Button>
+                <div className=" flex justify-center items-baseline flex-col gap-y-1">
+                  {navLink.map((item) =>
+                    item.label === "Contact Us" ? (
+                      <ContactUs
+                        label={item.label}
+                        key={item.link}
+                        isFooter={true}
+                      />
+                    ) : (
+                      <Link to={item.link} key={item.label}>
+                        <Button variant={"link"}>{item.label}</Button>
+                      </Link>
+                    ),
+                  )}
                 </div>
               </CardContent>
             </Card>

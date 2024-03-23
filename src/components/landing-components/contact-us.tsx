@@ -14,14 +14,15 @@ import { cn } from "@/lib/utils";
 
 interface ContactUsProps {
   label: string;
+  isFooter?: boolean;
 }
 
-const ContactUs: FC<ContactUsProps> = ({ label }) => {
+const ContactUs: FC<ContactUsProps> = ({ label, isFooter = false }) => {
   const [open, setOpen] = useState<boolean>(false);
   return (
     <Drawer open={open} onClose={() => setOpen(false)}>
       <div
-        className={cn(buttonVariants({ variant: "ghost" }))}
+        className={cn(buttonVariants({ variant: isFooter ? "link" : "ghost" }))}
         onClick={() => setOpen(true)}
       >
         {label}{" "}

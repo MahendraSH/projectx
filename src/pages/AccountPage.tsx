@@ -25,8 +25,8 @@ const sidebarNavItems = [
     Icon: HeartIcon,
   },
   {
-    title: "Display",
-    href: "/account/display",
+    title: "Logout",
+    href: "/logout",
     Icon: BoxIcon,
   },
 ];
