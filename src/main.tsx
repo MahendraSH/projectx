@@ -20,7 +20,8 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
             gutter={10}
             position="bottom-center"
             toastOptions={{
-              className: " bg-background text-foreground min-w-80 ",
+              className:
+                " bg-background text-foreground min-w-96 p-2 border-2   text-lg font-semibold text-pretty ",
               duration: 5000,
             }}
           />

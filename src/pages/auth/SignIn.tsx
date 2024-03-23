@@ -99,76 +99,81 @@ const SignIn: FC<SignInProps> = () => {
 
   return (
     <div className="w-full flex  justify-center items-center pt-16 gap-y-6 rounded-lg py-16 ">
-      <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmitHandler)}
-          className="space-y-8 bg-background rounded-md p-8 md:w-[calc(50%)] w-full text-card-foreground"
-        >
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Email</FormLabel>
-                <FormControl>
-                  <Input
-                    placeholder="username"
-                    {...field}
-                    autoFocus
-                    className="h-12"
-                  />
-                </FormControl>
-                <FormDescription>Please provide your Email Id</FormDescription>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="password"
-            render={({ field }) => (
-              <FormItem className="relative">
-                <FormLabel>Password</FormLabel>
-                <FormControl>
-                  <>
+      <div className=" flex flex-col  bg-background rounded-md p-8 md:w-[calc(50%)] w-full text-card-foreground space-y-8">
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit(onSubmitHandler)}
+            className="space-y-8 "
+          >
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email</FormLabel>
+                  <FormControl>
                     <Input
-                      placeholder="password"
+                      placeholder="username"
                       {...field}
-                      type="password"
-                      autoComplete="off" // corrected from "false"
+                      autoFocus
                       className="h-12"
                     />
-                    <button
-                      type="button"
-                      className="absolute lg:top-1/2 transform -translate-y-1/2 right-2 top-1/3"
-                      onClick={() => setShowPassword(!showPassword)}
-                    >
-                      {showPassword ? (
-                        <EyeIcon className="w-4 h-4" />
-                      ) : (
-                        <EyeOff className="w-4 h-4 " />
-                      )}
-                    </button>
-                  </>
-                </FormControl>
-                <FormDescription>
-                  Password must be at least of 6 characters, one Symbol, and a
-                  number
-                </FormDescription>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+                  </FormControl>
+                  <FormDescription>
+                    Please provide your Email Id
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem className="relative">
+                  <FormLabel>Password</FormLabel>
+                  <FormControl>
+                    <>
+                      <Input
+                        placeholder="password"
+                        {...field}
+                        type="password"
+                        autoComplete="off" // corrected from "false"
+                        className="h-12"
+                      />
+                      <button
+                        type="button"
+                        className="absolute lg:top-1/2 transform -translate-y-1/2 right-2 top-1/3"
+                        onClick={() => setShowPassword(!showPassword)}
+                      >
+                        {showPassword ? (
+                          <EyeIcon className="w-4 h-4" />
+                        ) : (
+                          <EyeOff className="w-4 h-4 " />
+                        )}
+                      </button>
+                    </>
+                  </FormControl>
+                  <FormDescription>
+                    Password must be at least of 6 characters, one Symbol, and a
+                    number
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <div className="flex flex-col gap-y-4">
+              <Button
+                type="submit"
+                variant={"primaryGradient"}
+                size={"lg"}
+                disabled={isLoading}
+              >
+                {isLoading ? "Signing In..." : "Sign In"}
+              </Button>
+            </div>
+          </form>
           <div className="flex flex-col gap-y-4">
-            <Button
-              type="submit"
-              variant={"primaryGradient"}
-              size={"lg"}
-              disabled={isLoading}
-            >
-              {isLoading ? "Signing In..." : "Sign In"}
-            </Button>
-
             <div className=" flex justify-center text-xs uppercase">
               <span className="bg-background px-2 text-muted-foreground">
                 Or continue with
@@ -194,8 +199,8 @@ const SignIn: FC<SignInProps> = () => {
               </Link>
             </div>
           </div>
-        </form>
-      </Form>
+        </Form>
+      </div>
     </div>
   );
 };
