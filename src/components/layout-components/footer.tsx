@@ -25,10 +25,10 @@ const Footer: FC<FooterProps> = ({}) => {
               {siteConfig.description}
             </p>
           </div>
-          <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
+          <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left justify-center items-baseline text-center">
             <Card className="lg:w-1/4 md:w-1/2 w-full px-4 flex justify-center items-center flex-col bg-inherit border-none shadow-none ">
               <CardHeader>
-                <CardTitle>Main Links </CardTitle>
+                <CardTitle>Quick Links </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className=" flex justify-center items-baseline flex-col gap-y-1">
@@ -50,14 +50,15 @@ const Footer: FC<FooterProps> = ({}) => {
             </Card>
             <Card className="lg:w-1/4 md:w-1/2 w-full px-4 flex justify-center items-center flex-col bg-inherit border-none shadow-none ">
               <CardHeader>
-                <CardTitle>CATEGORIES</CardTitle>
+                <CardTitle> Support </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className=" flex justify-center items-center flex-col gap-y-1">
-                  <Button variant={"link"}> Link One </Button>
-                  <Button variant={"link"}> Link two </Button>
-                  <Button variant={"link"}> Link three </Button>
-                  <Button variant={"link"}> Link four </Button>
+                <div className=" flex justify-center items-baseline flex-col gap-y-1">
+                  <Button variant={"link"}> Track your order </Button>
+                  <Button variant={"link"}> Shipping policy </Button>
+                  <Button variant={"link"}> Return policy </Button>
+                  <Button variant={"link"}> Privacy policy </Button>
+                  <Button variant={"link"}> Terms & service </Button>
                 </div>
               </CardContent>
             </Card>
@@ -66,7 +67,7 @@ const Footer: FC<FooterProps> = ({}) => {
                 <CardTitle>CATEGORIES</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className=" flex justify-center items-center flex-col gap-y-1">
+                <div className=" flex justify-center items-baseline flex-col gap-y-1">
                   <Button variant={"link"}> Link One </Button>
                   <Button variant={"link"}> Link two </Button>
                   <Button variant={"link"}> Link three </Button>

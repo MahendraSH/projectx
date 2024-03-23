@@ -17,7 +17,6 @@ const LazyProductByIdPage = React.lazy(() => import("@/pages/ProductById"));
 const LazyAccountPage = React.lazy(() => import("@/pages/AccountPage"));
 const LazyCartPage = React.lazy(() => import("@/pages/CartPage"));
 const LazyAuthOnlyLayout = React.lazy(() => import("@/layouts/AuthOnlyLayout"));
-const LazyShopingPage = React.lazy(() => import("@/pages/ShopingPage"));
 const LazyCheckOutPage = React.lazy(() => import("@/pages/CheckOutPage"));
 const LazyLogoutPage = React.lazy(() => import("@/pages/LogoutPage"));
 const App = () => {
@@ -72,7 +71,6 @@ const App = () => {
             element={<Navigate to={"/account/profile"} />}
           />
           <Route path="/account/:pageId" element={<LazyAccountPage />} />
-          <Route path="/shop" element={<LazyShopingPage />} />
           <Route path="/checkout" element={<LazyCheckOutPage />} />
           <Route path="/logout" element={<LazyLogoutPage />} />
         </Route>
