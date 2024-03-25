@@ -19,8 +19,8 @@ const Animation: FC<AnimationProps> = ({ isReverse = false }) => {
     AutoScroll({
       direction: isReverse ? "backward" : "forward",
       startDelay: 2000,
-      speed: 2,
-    })
+      speed: 1,
+    }),
   );
 
   return (

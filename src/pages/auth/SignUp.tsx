@@ -93,7 +93,7 @@ const SignUp: FC<SignUpProps> = () => {
       dispatch(setUser(res));
       navigate("/");
     } catch (error) {
-      toast.error("Sign In Failed");
+      toast.error("Sign Up Failed" + JSON.stringify(error));
       console.error(error);
     }
   }
