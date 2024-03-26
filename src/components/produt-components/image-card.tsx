@@ -17,7 +17,7 @@ const ImageCard: FC<ImageCardProps> = ({
   image,
   isAllOver = false,
   isDark = false,
-  color,
+  color = "shirt-1.jpg",
   isSmall = false,
 }) => {
   return (
