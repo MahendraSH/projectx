@@ -42,7 +42,7 @@ const ProductByIdPage: FC<ProductByIdPageProps> = ({}) => {
                     <ImageCard
                       image={{ imageUrl: data.image.imageUrl, alt: data.title }}
                       // isAllOver={true}
-                      color={colorValue}
+                      color={colorValue || "shirt-1.jpg"}
                     />
                   </div>
                   <div className="flex flex-col gap-2 w-full">
