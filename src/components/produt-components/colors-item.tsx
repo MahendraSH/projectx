@@ -1,17 +1,20 @@
 import { FC } from "react";
-import { Button } from "../ui/button";
-import { CircleIcon } from "lucide-react";
 
 interface ColorItemProps {
   value: string;
 }
 
 const ColorItem: FC<ColorItemProps> = ({ value }) => {
+  const imageUrl = `/images/shirt/${value}`;
   return (
     <>
-      <Button variant={"outline"} size={"icon"}>
-        <CircleIcon className="w-7 h-7 " style={{ fill: value }} />
-      </Button>
+      <div
+        className="w-7 h-7 rounded-full ring-2"
+        style={{
+          backgroundImage: `url(${imageUrl})`,
+          backgroundPosition: "center",
+        }}
+      />
     </>
   );
 };

@@ -12,18 +12,7 @@ import { useParams } from "react-router-dom";
 
 interface ProductByIdPageProps {}
 
-const colors = [
-  "white",
-  "black",
-  "blue",
-  "green",
-  "yellow",
-  "red",
-  "pink",
-  "grey",
-  "darkblue",
-  "darkgreen",
-];
+const colors = ["shirt-1.jpg", "shirt-2.jpg", "shirt-3.jpg"];
 const ProductByIdPage: FC<ProductByIdPageProps> = ({}) => {
   const colorValue = useAppSelector((state) => state.color.value);
   const params = useParams();
