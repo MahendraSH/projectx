@@ -99,3 +99,55 @@ body,
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(214, 3%, 41%);
 }
+
+/* BotLoading.css */
+@keyframes typing {
+  0% {
+    width: 0px; /* Start with 0 width */
+  }
+  10% {
+    width: 30px; /* Increase width gradually */
+  }
+  20% {
+    width: 60px; /* Increase width gradually */
+  }
+  30% {
+    width: 90px; /* Increase width gradually */
+  }
+  40% {
+    width: 120px; /* Increase width gradually */
+  }
+  50% {
+    width: 150px; /* Increase width gradually */
+  }
+  60% {
+    width: 180px; /* Increase width gradually */
+  }
+  70% {
+    width: 210px; /* Increase width gradually */
+  }
+  80% {
+    width: 240px; /* Increase width gradually */
+  }
+  90% {
+    width: 270px; /* Increase width gradually */
+  }
+  100% {
+    width: 300px; /* Fully typed */
+  }
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.typed-text {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 4s linear infinite;
+}
+
+.cursor {
+  animation: blink 1s step-end infinite;
+}
