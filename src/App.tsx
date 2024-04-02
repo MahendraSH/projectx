@@ -22,7 +22,7 @@ const LazyLogoutPage = React.lazy(() => import("@/pages/LogoutPage"));
 const App = () => {
   const dispatch = useAppDispatch();
   const user: userResponse = JSON.parse(
-    localStorage.getItem("userDetails") || "{}",
+    localStorage.getItem("userDetails") || "{}"
   );
 
   useEffect(() => {
