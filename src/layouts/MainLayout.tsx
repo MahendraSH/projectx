@@ -6,8 +6,9 @@ import { Outlet } from "react-router-dom";
 const MainLayout = () => {
   return (
     <>
-      <Navbar />
       <Banner />
+
+      <Navbar />
       <main className="bggrad">
         <Outlet />
       </main>

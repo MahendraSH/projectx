@@ -1,14 +1,8 @@
 [
   {
-    "id": 1,
-    "message": "Limited time offer! Get 20% off on all products!",
-    "type": "offer",
-    "image": "/discount-svgrepo-com.svg"
-  },
-  {
     "id": 2,
     "message": "Hurry! Only 5 items left in stock for Product XYZ.",
-    "type": "low_stock",
+    "type": "Low Stock",
     "image": "/warning.svg"
   }
 ]

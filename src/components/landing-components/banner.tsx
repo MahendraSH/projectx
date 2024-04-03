@@ -1,7 +1,5 @@
 import { FC, useEffect, useState } from "react";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Button } from "../ui/button";
-import { XIcon } from "lucide-react";
+import { AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { cn } from "@/lib/utils";
 interface Banner {
   id: number;
@@ -14,7 +12,6 @@ interface BannerProps {}
 
 const Banner: FC<BannerProps> = ({}) => {
   const [banners, setBanners] = useState<Banner[]>([]);
-  const [showBanner, setShowBanner] = useState<number[]>([]);
 
   useEffect(() => {
     // Fetch banners from JSON file or API
@@ -25,41 +22,28 @@ const Banner: FC<BannerProps> = ({}) => {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <>
       {banners.map((banner) => (
-        <Alert
+        <div
+          className="flex flex-row px-2 md:px-20 p-0.5 rounded-md my-0.5 shadow shadow-muted justify-center items-baseline min-h-9  w-full bg-gradient-to-bl from-primary/50 via-secondary/70 to-primary/50  md:space-x-8 space-x-3"
           key={banner.id}
-          className={cn(
-            " max-w-xs sm:max-w-md lg:max-w-xl fixed z-50 top-20 ",
-            showBanner.includes(banner.id) && " hidden"
-          )}
         >
-          <div className=" flex relative justify-start items-center gap-x-5">
-            <span>
-              {banner.image && (
-                <img
-                  src={banner.image}
-                  alt={banner.message}
-                  className="size-10 inline"
-                />
-              )}
-            </span>
-            <AlertTitle className="text-lg capitalize">
-              {banner.type}
-            </AlertTitle>
+          <span>
+            {banner.image && (
+              <img
+                src={banner.image}
+                alt={banner.message}
+                className="size-6 inline"
+              />
+            )}
+          </span>
+          <div className=" md:text-base text-sm font-semibold capitalize">
+            {banner.type}
           </div>
-          <AlertDescription>{banner.message}</AlertDescription>
-          <Button
-            variant={"outline"}
-            size={"icon"}
-            className="absolute top-3 right-5"
-            onClick={() => setShowBanner([...showBanner, banner.id])}
-          >
-            <XIcon className="size-4" />
-          </Button>
-        </Alert>
+          <div className="md:text-sm text-xs">{banner.message}</div>
+        </div>
       ))}
-    </div>
+    </>
   );
 };
 
