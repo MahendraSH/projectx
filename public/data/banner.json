@@ -1,7 +1,11 @@
 [
   {
     "id": 2,
-    "message": "Hurry! Only 5 items left in stock for Product XYZ.",
+    "message": [
+      "Hurry! Only ",
+      " 5/400 ",
+      "items left in stock for Product XYZ."
+    ],
     "type": "Low Stock",
     "image": "/warning.svg"
   }

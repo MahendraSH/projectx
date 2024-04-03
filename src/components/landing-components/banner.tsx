@@ -33,14 +33,24 @@ const Banner: FC<BannerProps> = ({}) => {
               <img
                 src={banner.image}
                 alt={banner.message}
-                className="size-6 inline"
+                className="size-5 md:size-6 inline"
               />
             )}
           </span>
           <div className=" md:text-base text-sm font-semibold capitalize">
             {banner.type}
           </div>
-          <div className="md:text-sm text-xs">{banner.message}</div>
+          <div className="md:text-sm text-xs">
+            {banner.message.map((item, index) =>
+              index == 1 ? (
+                <span className="bg-destructive/60 font-semibold text-destructive-foreground">
+                  {item}
+                </span>
+              ) : (
+                item
+              ),
+            )}
+          </div>
         </div>
       ))}
     </>
