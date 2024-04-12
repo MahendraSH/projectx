@@ -17,7 +17,7 @@ export const store = configureStore({
     gDM().concat(
       authApiSlice.middleware,
       promptApiSlice.middleware,
-      productApiSlice.middleware
+      productApiSlice.middleware,
     ),
 });
 

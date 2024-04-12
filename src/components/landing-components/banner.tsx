@@ -1,6 +1,4 @@
 import { FC, useEffect, useState } from "react";
-import { AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { cn } from "@/lib/utils";
 interface Banner {
   id: number;
   message: string[];
