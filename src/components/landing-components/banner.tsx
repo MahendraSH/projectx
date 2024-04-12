@@ -3,7 +3,7 @@ import { AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { cn } from "@/lib/utils";
 interface Banner {
   id: number;
-  message: string;
+  message: string[];
   type: "offer" | "low_stock"; // Define possible types
   image?: string; // Optional image URL
 }
@@ -32,7 +32,7 @@ const Banner: FC<BannerProps> = ({}) => {
             {banner.image && (
               <img
                 src={banner.image}
-                alt={banner.message}
+                alt={banner.type}
                 className="size-5 md:size-6 inline"
               />
             )}
