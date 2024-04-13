@@ -8,7 +8,7 @@ import { LoaderIcon } from "react-hot-toast";
 import PageNotFound from "@/pages/PageNotFound";
 
 const LazyMainLayout = React.lazy(() => import("@/layouts/MainLayout"));
-const LazyLadingPage = React.lazy(() => import("@/pages/LadingPage"));
+const LazyLadingPage = React.lazy(() => import("@/pages/LandingPage"));
 const LazyAboutUs = React.lazy(() => import("@/pages/AboutUs"));
 const LazyFAQ = React.lazy(() => import("@/pages/FAQ"));
 const LazySignIn = React.lazy(() => import("@/pages/auth/SignIn"));
@@ -22,7 +22,7 @@ const LazyLogoutPage = React.lazy(() => import("@/pages/LogoutPage"));
 const App = () => {
   const dispatch = useAppDispatch();
   const user: userResponse = JSON.parse(
-    localStorage.getItem("userDetails") || "{}"
+    localStorage.getItem("userDetails") || "{}",
   );
 
   useEffect(() => {

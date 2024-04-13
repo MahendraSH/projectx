@@ -15,12 +15,14 @@ import { Input } from "@/components/ui/input";
 import { SparklesIcon, WandSparklesIcon } from "lucide-react";
 import PromptPotions from "./prompt-options";
 
-interface AiPromptProps {}
+interface AiPromptProps {
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+}
 const formSchema = z.object({
   prompt: z.string().min(2),
 });
 
-const AiPrompt: FC<AiPromptProps> = () => {
+const AiPrompt: FC<AiPromptProps> = ({ setIsLoading }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [prompt, setPrompt] = useState<string>("");
   const form = useForm<z.infer<typeof formSchema>>({
@@ -58,7 +60,7 @@ const AiPrompt: FC<AiPromptProps> = () => {
             <Button
               variant={"outline"}
               size={"lg"}
-              type="submit"
+              type="button"
               className=" ring-1  border-x-primary  border-t-blue-400 border-b-blue-300  "
             >
               Surprise Me <WandSparklesIcon className=" ml-3 w-5 h-5 " />
@@ -71,6 +73,7 @@ const AiPrompt: FC<AiPromptProps> = () => {
       </Form>
       <>
         <PromptPotions
+          setIsLoading={setIsLoading}
           onClose={() => {
             setIsOpen(!isOpen);
           }}

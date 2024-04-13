@@ -1,4 +1,3 @@
-import { FC } from "react";
 import {
   Dialog,
   DialogContent,
@@ -8,6 +7,7 @@ import {
 } from "@/components/ui/dialog";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { FC } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -21,14 +21,16 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { Loader2Icon } from "lucide-react";
 import toast from "react-hot-toast";
-import { Card } from "../ui/card";
 import { useNavigate } from "react-router-dom";
+import { Card } from "../ui/card";
 
 interface PromptPotionsProps {
   isOpen: boolean;
   prompt: string;
   onClose: () => void;
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 const formSchema = z.object({
   gender: z.string().min(1),
@@ -36,7 +38,12 @@ const formSchema = z.object({
   printType: z.string().min(1),
 });
 
-const PromptPotions: FC<PromptPotionsProps> = ({ isOpen, prompt, onClose }) => {
+const PromptPotions: FC<PromptPotionsProps> = ({
+  isOpen,
+  prompt,
+  onClose,
+  setIsLoading,
+}) => {
   const navigate = useNavigate();
   const [createPrompt, { isLoading }] = usePromptWithoutAuthMutation();
   const form = useForm<z.infer<typeof formSchema>>({
@@ -49,6 +56,7 @@ const PromptPotions: FC<PromptPotionsProps> = ({ isOpen, prompt, onClose }) => {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsLoading(true);
     try {
       const res = await createPrompt({
         prompt: prompt,
@@ -66,6 +74,8 @@ const PromptPotions: FC<PromptPotionsProps> = ({ isOpen, prompt, onClose }) => {
     } catch (error) {
       toast.error("Prompt Failed");
       console.error(error);
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -186,6 +196,9 @@ const PromptPotions: FC<PromptPotionsProps> = ({ isOpen, prompt, onClose }) => {
                 type="submit"
                 disabled={isLoading}
               >
+                {isLoading && (
+                  <Loader2Icon className=" w-4 animate-spin mr-3" />
+                )}
                 Apply
               </Button>
             </div>

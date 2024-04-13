@@ -1,7 +1,5 @@
-import BotLoading from "@/components/bot-loading";
 import { Card } from "@/components/ui/card";
 import { ShoppingBagIcon } from "lucide-react";
-import React from "react";
 
 const CartPage = () => {
   return (
@@ -17,8 +15,6 @@ const CartPage = () => {
         <Card className=" md:w-3/4 lg:w-4/5 w-full min-h-32"> </Card>
         <Card className=" md:w-1/2 lg:w-1/5 w-full min-h-32"> </Card>
       </div>
-
-      <BotLoading />
     </>
   );
 };

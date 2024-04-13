@@ -1,0 +1,7 @@
+- [x] Add loading during shirt AI generation
+- [ ] Complete accounts page
+  - [ ] Carts
+  - [ ] Favorites
+- [ ] Cart page
+- [ ] Product actions (add to cart, add to favorites, etc.)
+- [ ] Add size, colors, and other metadata for the products
