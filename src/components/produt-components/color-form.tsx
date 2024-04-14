@@ -24,7 +24,7 @@ const ColorForm: FC<ColorFormProps> = ({ colors }) => {
   }
 
   return (
-    <div className="w-32 space-y-6">
+    <div className="w-32 space-y-2">
       <Label>Color</Label>
       <div className="flex space-x-6">
         {colors.map((color) => (

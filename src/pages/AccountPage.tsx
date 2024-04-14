@@ -38,7 +38,7 @@ const AccountPage: FC<AccountPageProps> = ({}) => {
       <aside className="-mx-4 lg:w-1/5">
         <SidebarNav items={sidebarNavItems} />
       </aside>
-      <div className="flex-1 lg:max-w-2xl">
+      <div className="flex-1 lg:w-4/5 px-4">
         {params.pageId === "orders" && <Orders />}
         {params.pageId === "favorities" && <Favorities />}
         {params.pageId === "profile" && <Profile />}

@@ -9,11 +9,9 @@ import {
 import { siteConfig } from "@/utils/site-config";
 import AiPrompt from "./prompt";
 
-interface HeadingProps {
-  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
-}
+interface HeadingProps {}
 
-const Heading: FC<HeadingProps> = ({ setIsLoading }) => {
+const Heading: FC<HeadingProps> = ({}) => {
   return (
     <Card className=" bg-grad border-none shadow-none w-full my-0 py-0 flex justify-center items-center flex-col ">
       <CardHeader className="mx-auto ">
@@ -30,7 +28,7 @@ const Heading: FC<HeadingProps> = ({ setIsLoading }) => {
         </CardTitle>
       </CardHeader>
       <CardContent className=" lg:p-0 m-0 mx-16 lg:w-[60%]  w-full  px-8 ">
-        <AiPrompt setIsLoading={setIsLoading} />
+        <AiPrompt />
       </CardContent>
     </Card>
   );

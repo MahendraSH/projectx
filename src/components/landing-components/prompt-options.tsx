@@ -25,12 +25,12 @@ import { Loader2Icon } from "lucide-react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { Card } from "../ui/card";
-
+import { useAppDispatch } from "@/app/hooks";
+import { setLoading } from "@/app/features/loadingSlice";
 interface PromptPotionsProps {
   isOpen: boolean;
   prompt: string;
   onClose: () => void;
-  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 const formSchema = z.object({
   gender: z.string().min(1),
@@ -38,12 +38,8 @@ const formSchema = z.object({
   printType: z.string().min(1),
 });
 
-const PromptPotions: FC<PromptPotionsProps> = ({
-  isOpen,
-  prompt,
-  onClose,
-  setIsLoading,
-}) => {
+const PromptPotions: FC<PromptPotionsProps> = ({ isOpen, prompt, onClose }) => {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [createPrompt, { isLoading }] = usePromptWithoutAuthMutation();
   const form = useForm<z.infer<typeof formSchema>>({
@@ -56,7 +52,7 @@ const PromptPotions: FC<PromptPotionsProps> = ({
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    setIsLoading(true);
+    dispatch(setLoading(true));
     try {
       const res = await createPrompt({
         prompt: prompt,
@@ -75,7 +71,7 @@ const PromptPotions: FC<PromptPotionsProps> = ({
       toast.error("Prompt Failed");
       console.error(error);
     } finally {
-      setIsLoading(false);
+      dispatch(setLoading(false));
     }
   }
 

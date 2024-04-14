@@ -35,7 +35,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
     );
   };
   return (
-    <div className="flex justify-center items-center h-16   py-1 shadow-md shadow-secondary w-full bggrad ">
+    <div className="flex justify-center items-center h-16    shadow-md shadow-secondary w-full bggrad ">
       <Logo />
       <div className=" ml-auto  pr-4  gap-x-5 hidden lg:flex">
         {navLink.map((item) =>

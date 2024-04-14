@@ -4,20 +4,29 @@ import { promptApiSlice } from "./features/promtApiSlice";
 import UserAuthReducer from "./features/userAuthSlice";
 import { productApiSlice } from "./features/productApiSlice";
 import colorsSlice from "./features/colorsSlice";
+import loadingSlice from "./features/loadingSlice";
+import sizeSlice from "./features/sizeSlice";
+import productQuantity from "./features/productQuantity";
+import { cartAndFavouritesApiSlice } from "./features/sessionApiSlice";
 
 export const store = configureStore({
   reducer: {
     [authApiSlice.reducerPath]: authApiSlice.reducer,
     [promptApiSlice.reducerPath]: promptApiSlice.reducer,
     [productApiSlice.reducerPath]: productApiSlice.reducer,
+    [cartAndFavouritesApiSlice.reducerPath]: cartAndFavouritesApiSlice.reducer,
     user: UserAuthReducer,
     color: colorsSlice,
+    loading: loadingSlice,
+    size: sizeSlice,
+    quantity: productQuantity,
   },
   middleware: (gDM) =>
     gDM().concat(
       authApiSlice.middleware,
       promptApiSlice.middleware,
       productApiSlice.middleware,
+      cartAndFavouritesApiSlice.middleware,
     ),
 });
 
