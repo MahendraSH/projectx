@@ -8,6 +8,7 @@ import loadingSlice from "./features/loadingSlice";
 import sizeSlice from "./features/sizeSlice";
 import productQuantity from "./features/productQuantity";
 import { cartAndFavouritesApiSlice } from "./features/sessionApiSlice";
+import { collectionApiSlice } from "./features/collectionsApiSlice";
 
 export const store = configureStore({
   reducer: {
@@ -15,6 +16,7 @@ export const store = configureStore({
     [promptApiSlice.reducerPath]: promptApiSlice.reducer,
     [productApiSlice.reducerPath]: productApiSlice.reducer,
     [cartAndFavouritesApiSlice.reducerPath]: cartAndFavouritesApiSlice.reducer,
+    [collectionApiSlice.reducerPath]: collectionApiSlice.reducer,
     user: UserAuthReducer,
     color: colorsSlice,
     loading: loadingSlice,
@@ -27,6 +29,7 @@ export const store = configureStore({
       promptApiSlice.middleware,
       productApiSlice.middleware,
       cartAndFavouritesApiSlice.middleware,
+      collectionApiSlice.middleware,
     ),
 });
 

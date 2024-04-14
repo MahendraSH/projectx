@@ -1,3 +1,4 @@
+import { Product } from "@/app/features/collectionsApiSlice";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -8,10 +9,13 @@ import {
 } from "@/components/ui/carousel";
 
 import { FC } from "react";
+import { Link } from "react-router-dom";
 
-interface ImageCategoryProps {}
+interface ImageCategoryProps {
+  products: Product[];
+}
 
-const ImageCategory: FC<ImageCategoryProps> = ({}) => {
+const ImageCategory: FC<ImageCategoryProps> = ({ products }) => {
   return (
     <Carousel
       opts={{
@@ -20,14 +24,14 @@ const ImageCategory: FC<ImageCategoryProps> = ({}) => {
       className="w-[95%] mx-auto "
     >
       <CarouselContent>
-        {Array.from({ length: 20 }).map((_, index) => (
+        {products.map((item, index) => (
           <CarouselItem key={index} className="max-w-fit">
             <div className="p-1">
-              <Card className="w-48 aspect-square">
-                <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <span className="text-3xl font-semibold">{index + 1}</span>
-                </CardContent>
-              </Card>
+              <Link to={`/product/${item.productId}`}>
+                <Card className="w-48 aspect-square">
+                  <img src={item.images[0].imageUrl} alt={item.title} />
+                </Card>
+              </Link>
             </div>
           </CarouselItem>
         ))}

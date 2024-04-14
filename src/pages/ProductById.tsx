@@ -121,7 +121,7 @@ const ProductByIdPage: FC<ProductByIdPageProps> = ({}) => {
 
                       <ImageCard
                         image={{
-                          imageUrl: data.image.imageUrl,
+                          imageUrl: data.images[0].imageUrl,
                           alt: data.title,
                         }}
                         // isAllOver={true}
@@ -210,7 +210,10 @@ const ProductByIdPage: FC<ProductByIdPageProps> = ({}) => {
                     </div>
 
                     <ImageCard
-                      image={{ imageUrl: data.image.imageUrl, alt: data.title }}
+                      image={{
+                        imageUrl: data.images[0].imageUrl,
+                        alt: data.title,
+                      }}
                       // isAllOver={
                       //   data.image.metaData.printType === "ALL_OVER_PRINT"
                       // }
