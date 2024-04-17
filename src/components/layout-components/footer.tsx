@@ -11,6 +11,7 @@ import { Button } from "../ui/button";
 import { navLink } from "@/utils/nav-link";
 import { Link } from "react-router-dom";
 import ContactUs from "../landing-components/contact-us";
+import { Mail, MailIcon, MapPinIcon, PhoneIcon } from "lucide-react";
 
 interface FooterProps {}
 
@@ -19,11 +20,34 @@ const Footer: FC<FooterProps> = ({}) => {
     <div className=" w-full">
       <footer className="text-foreground body-font bggrad">
         <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
-          <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
-            <Logo />
-            <p className="mt-2 text-sm text-muted-foreground">
+          <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left flex flex-col justify-center items-center">
+            <Logo isFooter={true} />
+            <p className="mt-2  text-lg text-muted-foreground">
               {siteConfig.description}
             </p>
+            <div className="  py-4  flex justify-center items-center gap-5">
+              <Button
+                variant={"outline"}
+                size={"icon"}
+                className="rounded-full"
+              >
+                <InstagramLogoIcon className=" w-5 h-5" />
+              </Button>
+              <Button
+                variant={"outline"}
+                size={"icon"}
+                className="rounded-full"
+              >
+                <LinkedInLogoIcon className=" w-5 h-5" />
+              </Button>
+              <Button
+                variant={"outline"}
+                size={"icon"}
+                className="rounded-full"
+              >
+                <TwitterLogoIcon className=" w-5 h-5" />
+              </Button>
+            </div>
           </div>
           <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left justify-center items-baseline text-center">
             <Card className="lg:w-1/4 md:w-1/2 w-full px-4 flex justify-center items-center flex-col bg-inherit border-none shadow-none ">
@@ -43,7 +67,7 @@ const Footer: FC<FooterProps> = ({}) => {
                       <Link to={item.link} key={item.label}>
                         <Button variant={"link"}>{item.label}</Button>
                       </Link>
-                    ),
+                    )
                   )}
                 </div>
               </CardContent>
@@ -67,11 +91,24 @@ const Footer: FC<FooterProps> = ({}) => {
                 <CardTitle>CATEGORIES</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className=" flex justify-center items-baseline flex-col gap-y-1">
-                  <Button variant={"link"}> Link One </Button>
-                  <Button variant={"link"}> Link two </Button>
-                  <Button variant={"link"}> Link three </Button>
-                  <Button variant={"link"}> Link four </Button>
+                <div className=" flex justify-center items-baseline flex-col gap-y-1 max-w-32">
+                  {/* contact and Email and Address info */}
+                  <Button variant={"link"}>
+                    <PhoneIcon className="size-4 mr-2" /> +489348348934
+                  </Button>
+                  <Button variant={"link"}>
+                    <MailIcon className="size-4 mr-2" />
+                    XXXXXXXXXXXXXXXXX
+                  </Button>
+                  <div className="flex flex-col items-center gap-x-2 w-full">
+                    <Button variant={"link"}>
+                      <MapPinIcon className="size-5 mr-2" />
+                      Address
+                    </Button>
+                    <p className=" text-wrap text-sm ">
+                      Lorem ipsum dolor sit.
+                    </p>
+                  </div>
                 </div>
               </CardContent>
             </Card>

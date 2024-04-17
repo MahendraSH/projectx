@@ -1,3 +1,4 @@
+import { siteConfig } from "@/utils/site-config";
 import { FC } from "react";
 import {
   Card,
@@ -6,15 +7,16 @@ import {
   CardHeader,
   CardTitle,
 } from "../ui/card";
-import { siteConfig } from "@/utils/site-config";
 import AiPrompt from "./prompt";
+import { Spotlight } from "../ui/Spotlight";
 
 interface HeadingProps {}
 
 const Heading: FC<HeadingProps> = ({}) => {
   return (
     <Card className=" bg-grad border-none shadow-none w-full my-0 py-0 flex justify-center items-center flex-col ">
-      <CardHeader className="mx-auto ">
+      <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="blue" />
+      <CardHeader className="mx-auto p-0 m-0 ">
         <CardTitle className=" lg:px-8  mx-auto lg:mx-10 text-3xl lg:text-5xl bg-clip-text text-transparent bg-gradient-to-br from-primary via-secondary-foreground to-blue-500 ">
           {siteConfig.description}
           <br />
@@ -26,10 +28,10 @@ const Heading: FC<HeadingProps> = ({}) => {
             Recusandae, aliquam.
           </CardDescription>
         </CardTitle>
+        <CardContent className=" lg:p-0 m-0 lg:mx-16 lg:w-[60%]  w-full  px-8 ">
+          <AiPrompt />
+        </CardContent>
       </CardHeader>
-      <CardContent className=" lg:p-0 m-0 mx-16 lg:w-[60%]  w-full  px-8 ">
-        <AiPrompt />
-      </CardContent>
     </Card>
   );
 };

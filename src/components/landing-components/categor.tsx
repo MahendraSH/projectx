@@ -24,7 +24,7 @@ const Category: FC<CategoryProps> = ({}) => {
     }
   }, []);
   return (
-    <Card className=" w-full p-2 flex flex-col justify-center items-center bggrad rounded-none">
+    <Card className=" w-full p-2 flex flex-col justify-center items-center bggrad rounded-md border-none shadow-none">
       <div id="shop" ref={shopRef}>
         {" "}
       </div>

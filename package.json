@@ -27,6 +27,7 @@
     "embla-carousel-auto-scroll": "^8.0.0",
     "embla-carousel-react": "^8.0.0",
     "firebase": "^10.9.0",
+    "framer-motion": "^11.1.2",
     "lucide-react": "^0.354.0",
     "markdown-it": "^14.0.0",
     "markdown-it-github-headings": "^2.0.1",
@@ -38,7 +39,7 @@
     "react-html-parser": "^2.0.2",
     "react-redux": "^9.1.0",
     "react-router-dom": "^6.22.3",
-    "tailwind-merge": "^2.2.1",
+    "tailwind-merge": "^2.2.2",
     "tailwindcss-animate": "^1.0.7",
     "vaul": "^0.9.0",
     "zod": "^3.22.4"

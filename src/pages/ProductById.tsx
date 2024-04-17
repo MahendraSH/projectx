@@ -1,23 +1,28 @@
 import { useGetProductByIdQuery } from "@/app/features/productApiSlice";
-import ProductQuantity from "@/components/produt-components/product-quantity";
-import { useAppDispatch, useAppSelector } from "@/app/hooks";
-import ColorForm from "@/components/produt-components/color-form";
-import ImageCard from "@/components/produt-components/image-card";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription } from "@/components/ui/card";
-import { Skeleton } from "@/components/ui/skeleton";
-import { MagicWandIcon } from "@radix-ui/react-icons";
-import { ShoppingCartIcon } from "lucide-react";
-import { FC } from "react";
-import { useParams } from "react-router-dom";
-import ProductSize from "@/components/produt-components/product-size";
-import { HeartIcon, ShoppingCart, ZoomIn, ZoomOutIcon } from "lucide-react";
-import { stat } from "fs";
 import {
   useAddToCartMutation,
   useAddToFavouritesMutation,
 } from "@/app/features/sessionApiSlice";
+import { useAppSelector } from "@/app/hooks";
+import ColorForm from "@/components/produt-components/color-form";
+import ImageCard from "@/components/produt-components/image-card";
+import ProductQuantity from "@/components/produt-components/product-quantity";
+import ProductSize from "@/components/produt-components/product-size";
+import { Button } from "@/components/ui/button";
+import { Card, CardDescription } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Textarea } from "@/components/ui/textarea";
+import { MagicWandIcon } from "@radix-ui/react-icons";
+import {
+  HeartIcon,
+  ShoppingCart,
+  ShoppingCartIcon,
+  ZoomIn,
+} from "lucide-react";
+import { FC } from "react";
 import toast from "react-hot-toast";
+import { useParams } from "react-router-dom";
 
 interface ProductByIdPageProps {}
 
@@ -77,7 +82,7 @@ const ProductByIdPage: FC<ProductByIdPageProps> = ({}) => {
     };
 
     return (
-      <div className=" w-full lg:p-16 md:p-6  p-1 bggrid    prose *:text-foreground prose-headings:text-foreground prose-strong:text-foreground min-w-full ">
+      <div className=" w-full  py-10 p-1 bggrid    lg:container   prose *:text-foreground prose-headings:text-foreground prose-strong:text-foreground min-w-full ">
         {isLoading ? (
           <div>
             {" "}
@@ -90,7 +95,7 @@ const ProductByIdPage: FC<ProductByIdPageProps> = ({}) => {
           <>
             {isSuccess && (
               <>
-                <Card className="w-full min-h-full md:px-8 p-1  m-0 md:flex lg:flex-row hidden  flex-col lg:justify-start lg:items-center justify-start items-center  lg:gap-x-16 gap-y-8 ">
+                <Card className="w-full min-h-full lg:px-8 p-1 py-10  m-0 hidden md:flex flex-col lg:flex-row  justify-between items-start ">
                   <div className="flex-1 items-center justify-center">
                     <div className=" relative  ">
                       <div className=" absolute top-2  z-50 flex  flex-col right-0  translate-x-5   gap-y-2 ">
@@ -129,44 +134,73 @@ const ProductByIdPage: FC<ProductByIdPageProps> = ({}) => {
                       />
                     </div>
                   </div>
-                  <div className="flex flex-col gap-2 w-full">
-                    <div className="w-full h-full flex md:flex-row flex-col md:justify-stretch justify-start md:items-baseline items-center gap-x-4 ">
-                      <div className=" flex-1 p-0 m-0 ">
-                        <h4 className="text-4xl"> {data.title}</h4>
-                        <CardDescription className="text-2xl text-primary">
-                          ₹ {data.price}
+                  <div className="flex flex-col gap-2 w-full  md:container">
+                    <div className=" flex  flex-row flex-wrap gap-6">
+                      <Card className=" p-2 rounded-sm flex-1 gap-y-5 border-none shadow-none">
+                        <Label className=" text-3xl font-semibold text-pretty">
+                          {" "}
+                          {data.title}{" "}
+                        </Label>
+                        <CardDescription className=" text-xl  text-primary">
+                          {" "}
+                          ₹ {data.price}{" "}
                         </CardDescription>
-                      </div>
-                      <CardContent className=" flex-1 p-0  space-y-6  ">
-                        <div className="flex justify-start gap-x-8 items-center">
-                          <label> Material </label>
-                          <CardDescription> 100% Cotton </CardDescription>
-                        </div>
-                        <ColorForm colors={colors} />
-                        <ProductQuantity />
-                      </CardContent>
-                      <CardContent className="p-0 flex-1 ">
-                        <div className="flex justify-start gap-x-8 items-center">
-                          <label> Gender </label>
-                          <CardDescription className="capitalize">
-                            {" "}
-                            {data.gender}{" "}
-                          </CardDescription>
-                        </div>
-                        <div className="flex justify-start gap-x-8 items-center">
-                          <label> Category </label>
-                          <CardDescription className="capitalize">
-                            {" "}
-                            {data.category}{" "}
-                          </CardDescription>
-                        </div>
-                        <div className="flex justify-start gap-x-8 items-center">
-                          <label> Prompt </label>
-                          <CardDescription> {data.prompt} </CardDescription>
-                        </div>
-                        <ProductSize />
-                      </CardContent>
+                      </Card>
+                      <Card className=" pb-2 rounded-sm flex-1 gap-y-5 border-none shadow-none">
+                        <table className="table-auto  ">
+                          <tbody>
+                            <tr className="border-none">
+                              <td>
+                                {" "}
+                                <Label> Gender </Label>
+                              </td>
+                              <td>{data.gender}</td>
+                            </tr>
+                            <tr className="border-none">
+                              <td>
+                                {" "}
+                                <Label> Category </Label>
+                              </td>
+                              <td>{data.category}</td>
+                            </tr>
+                            <tr className="border-none">
+                              <td>
+                                {" "}
+                                <Label> Prompt </Label>
+                              </td>
+                              <td>{data.prompt}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </Card>
                     </div>
+                    <div className=" flex  flex-row gap-6 w-full ">
+                      <Card className=" p-2 rounded-sm flex flex-col space-y-5  w-full border-none shadow-none">
+                        <Label className=" "> Prompt</Label>
+                        <Textarea value={data.prompt} className="resize-none" />
+                        <tr className="border-none space-y-5">
+                          <td>
+                            <ProductQuantity />
+                          </td>
+                        </tr>
+                      </Card>
+                      <Card className=" p-2 rounded-sm flex flex-col space-y-5 w-full  border-none shadow-none">
+                        <table className="table-auto  space-y-8   ">
+                          <tr className="border-none">
+                            <td>
+                              <ColorForm colors={colors} />
+                            </td>
+                          </tr>
+
+                          <tr className="border-none">
+                            <td>
+                              <ProductSize />
+                            </td>
+                          </tr>
+                        </table>
+                      </Card>
+                    </div>
+
                     <div className="w-full h-full flex md:flex-row flex-col pt-3  md:justify-stretch justify-center md:items-baseline items-center gap-x-8">
                       <Button
                         variant={"primaryGradient"}
@@ -240,18 +274,24 @@ const ProductByIdPage: FC<ProductByIdPageProps> = ({}) => {
                         {" "}
                         <ProductSize />{" "}
                       </div>
-                      <div className="flex items-center mb-4">
-                        <label className="mr-2">Gender:</label>
-                        <p>{data.gender}</p>
-                      </div>
-                      <div className="flex items-center mb-4">
-                        <label className="mr-2">Category:</label>
-                        <p>{data.category}</p>
-                      </div>
-                      <div className="flex items-center mb-8">
-                        <label className="mr-2">Prompt:</label>
-                        <p>{data.prompt}</p>
-                      </div>
+                      <table className="table-auto flex-1  ">
+                        <tbody>
+                          <tr className="border-none">
+                            <td>
+                              {" "}
+                              <Label> Gender </Label>
+                            </td>
+                            <td>{data.gender}</td>
+                          </tr>
+                          <tr className="border-none">
+                            <td>
+                              {" "}
+                              <Label> Category </Label>
+                            </td>
+                            <td>{data.category}</td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
                     <div className="flex flex-col items-center md:flex-row md:justify-between">
                       <Button

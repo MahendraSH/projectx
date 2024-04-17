@@ -60,6 +60,43 @@
   .bggrad {
     @apply bg-gradient-to-tl from-background via-secondary/80 to-background/95;
   }
+  .typed-text {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 4s linear infinite;
+  }
+
+  .cursor {
+    animation: blink 1s step-end infinite;
+  }
+
+  .bubble-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .bubble {
+    @apply bg-muted-foreground; /* Adjust opacity as needed */
+    position: absolute;
+    border-radius: 50%;
+    animation: bubbleAnimation 5s infinite linear;
+  }
+
+  @keyframes bubbleAnimation {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(-200px) scale(0.8);
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateY(-400px) scale(0.6);
+      opacity: 0;
+    }
+  }
 }
 
 html,
@@ -140,14 +177,4 @@ body,
   50% {
     opacity: 0;
   }
-}
-
-.typed-text {
-  overflow: hidden;
-  white-space: nowrap;
-  animation: typing 4s linear infinite;
-}
-
-.cursor {
-  animation: blink 1s step-end infinite;
 }
