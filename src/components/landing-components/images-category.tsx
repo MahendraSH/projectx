@@ -29,7 +29,11 @@ const ImageCategory: FC<ImageCategoryProps> = ({ products }) => {
             <div className="p-1">
               <Link to={`/product/${item.productId}`}>
                 <Card className="w-48 aspect-square">
-                  <img src={item.images[0].imageUrl} alt={item.title} />
+                  <img
+                    src={item.images[0].imageUrl}
+                    alt={item.title}
+                    className="w-48 aspect-square"
+                  />
                 </Card>
               </Link>
             </div>

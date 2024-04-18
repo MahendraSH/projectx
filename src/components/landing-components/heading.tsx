@@ -1,15 +1,10 @@
 import { siteConfig } from "@/utils/site-config";
-import { FC } from "react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "../ui/card";
-import AiPrompt from "./prompt";
-import { Spotlight } from "../ui/Spotlight";
 
+import { motion } from "framer-motion";
+import { FC } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
+import { Spotlight } from "../ui/Spotlight";
+import AiPrompt from "./prompt";
 interface HeadingProps {}
 
 const Heading: FC<HeadingProps> = ({}) => {
@@ -20,13 +15,22 @@ const Heading: FC<HeadingProps> = ({}) => {
         <CardTitle className=" lg:px-8  mx-auto lg:mx-10 text-3xl lg:text-5xl bg-clip-text text-transparent bg-gradient-to-br from-primary via-secondary-foreground to-blue-500 ">
           {siteConfig.description}
           <br />
-          <span className="underline dark:text-stone-200 text-stone-800 ">
+          <div className=" underline underline-offset-4 lg:no-underline relative dark:text-stone-200 text-stone-800 ">
+            <motion.div
+              initial={{ width: "20rem" }}
+              whileInView={{ width: "35rem" }}
+              transition={{
+                delay: 0.3,
+                duration: 0.8,
+                ease: "easeInOut",
+              }}
+              className=" absolute hidden lg:flex  bottom-0 z-50 h-0.5 translate-y-2  bg-primary "
+            ></motion.div>
             {siteConfig.name}
-          </span>
-          <CardDescription className=" mt-3 text-xl text-primary text-pretty font-normal">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Recusandae, aliquam.
-          </CardDescription>
+          </div>
+          <h3 className=" mt-3 text-xl text-primary text-pretty font-normal pt-5">
+            {siteConfig.subtitle}
+          </h3>
         </CardTitle>
         <CardContent className=" lg:p-0 m-0 lg:mx-16 lg:w-[60%]  w-full  px-8 ">
           <AiPrompt />
