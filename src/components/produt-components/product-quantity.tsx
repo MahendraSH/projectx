@@ -53,7 +53,7 @@ const ProductQuantity: FC<ProductQuantityProps> = ({}) => {
               <div className="flex flex-1  justify-center items-center border rounded-md focus-visible:ring-1  border-collapse hover:ring ">
                 <Button
                   variant={"outline"}
-                  size={"iconLg"}
+                  size={"icon"}
                   disabled={quantity === 1}
                   onClick={() => {
                     form.setValue("value", quantity - 1);
@@ -77,7 +77,7 @@ const ProductQuantity: FC<ProductQuantityProps> = ({}) => {
                 </FormControl>
                 <Button
                   variant={"outline"}
-                  size={"iconLg"}
+                  size={"icon"}
                   onClick={() => {
                     form.setValue("value", quantity + 1);
                     dispatch(incrementQuantity());
