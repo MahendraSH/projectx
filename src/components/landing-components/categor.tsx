@@ -24,7 +24,7 @@ const Category: FC<CategoryProps> = ({}) => {
     }
   }, []);
   return (
-    <Card className=" w-full p-2 flex flex-col justify-start items-start bggrad rounded-md border-none shadow-none">
+    <div className=" w-full p-2 flex flex-col justify-start items-start bggrad rounded-md border-none shadow-none">
       <div id="shop" ref={shopRef}>
         {" "}
       </div>
@@ -53,7 +53,7 @@ const Category: FC<CategoryProps> = ({}) => {
             </div>
           ))}
       </CardContent>
-    </Card>
+    </div>
   );
 };
 

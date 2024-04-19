@@ -99,8 +99,8 @@ const SignUp: FC<SignUpProps> = () => {
   }
 
   return (
-    <div className="w-full flex justify-center items-center pt-16 gap-y-6 rounded-lg py-10">
-      <div className=" flex flex-col  bg-background rounded-md p-8 w-full text-card-foreground space-y-8">
+    <div className="w-full flex  justify-center lg:items-start lg:py-4 items-center  gap-y-6 rounded-lg min-h-screen ">
+      <div className=" flex flex-col  bg-card  p-8 w-full text-card-foreground space-y-8 rounded-lg lg:ring-2">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmitHandler)}
@@ -138,7 +138,7 @@ const SignUp: FC<SignUpProps> = () => {
                       <Input
                         placeholder="password"
                         {...field}
-                        type="password"
+                        type={showPassword ? "text" : "password"}
                         autoComplete="off" // corrected from "false"
                         className="h-12"
                       />

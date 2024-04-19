@@ -30,11 +30,11 @@ const Navbar: FC<NavbarProps> = ({}) => {
         localId: "",
         refreshToken: "",
         registered: "",
-      })
+      }),
     );
   };
   return (
-    <div className="flex justify-center items-center h-16    shadow-md shadow-secondary w-full bggrad ">
+    <div className="flex justify-center items-center h-16 lg:h-20    shadow-md shadow-secondary w-full bggrad ">
       <Logo />
       <div className=" ml-auto  pr-4  gap-x-5 hidden lg:flex">
         {navLink.map((item) =>
@@ -44,7 +44,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
             <Link to={item.link} key={item.label}>
               <Button variant="ghost">{item.label}</Button>
             </Link>
-          )
+          ),
         )}
         {user?.idToken ? (
           <>

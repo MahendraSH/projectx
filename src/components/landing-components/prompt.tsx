@@ -35,9 +35,12 @@ const AiPrompt: FC<AiPromptProps> = ({}) => {
   }
 
   return (
-    <div className="  mt-8">
+    <div className="  mt-8 md:mt-20">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-10 ">
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="space-y-10  md:bggrad md:opacity-80 md:p-4 rounded-lg  "
+        >
           <FormField
             control={form.control}
             name="prompt"
