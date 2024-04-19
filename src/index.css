@@ -58,7 +58,44 @@
   }
 
   .bggrad {
-    @apply bg-gradient-to-tl from-background via-secondary/80 to-background/95;
+    @apply bg-gradient-to-tl from-background via-secondary/80 to-primary/10;
+  }
+  .typed-text {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 4s linear infinite;
+  }
+
+  .cursor {
+    animation: blink 1s step-end infinite;
+  }
+
+  .bubble-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .bubble {
+    @apply bg-muted-foreground; /* Adjust opacity as needed */
+    position: absolute;
+    border-radius: 50%;
+    animation: bubbleAnimation 5s infinite linear;
+  }
+
+  @keyframes bubbleAnimation {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(-200px) scale(0.8);
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateY(-400px) scale(0.6);
+      opacity: 0;
+    }
   }
 }
 
@@ -141,13 +178,24 @@ body,
     opacity: 0;
   }
 }
-
-.typed-text {
-  overflow: hidden;
-  white-space: nowrap;
-  animation: typing 4s linear infinite;
+.wavy-border {
+  animation: wave ease-in-out infinite 4s;
 }
 
-.cursor {
-  animation: blink 1s step-end infinite;
+@keyframes wave {
+  0% {
+    border-radius: 60% 40% 30% 70%/ 60% 30% 70% 40%;
+  }
+  25% {
+    border-radius: 40% 60% 50% 40%/ 40% 40% 50% 60%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40%/ 50% 60% 30% 60%;
+  }
+  75% {
+    border-radius: 50% 30% 40% 60%/ 30% 70% 60% 50%;
+  }
+  100% {
+    border-radius: 60% 40% 30% 70%/ 60% 30% 70% 40%;
+  }
 }

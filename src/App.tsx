@@ -22,7 +22,7 @@ const LazyLogoutPage = React.lazy(() => import("@/pages/LogoutPage"));
 const App = () => {
   const dispatch = useAppDispatch();
   const user: userResponse = JSON.parse(
-    localStorage.getItem("userDetails") || "{}",
+    localStorage.getItem("userDetails") || "{}"
   );
 
   useEffect(() => {
@@ -68,7 +68,7 @@ const App = () => {
           <Route path="/cart" element={<LazyCartPage />} />
           <Route
             path="/account"
-            element={<Navigate to={"/account/profile"} />}
+            element={<Navigate to={"/account/orders"} />}
           />
           <Route path="/account/:pageId" element={<LazyAccountPage />} />
           <Route path="/checkout" element={<LazyCheckOutPage />} />

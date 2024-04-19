@@ -12,7 +12,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 interface AccordionData {
-  title: string;    
+  title: string;
   content: string[];
 }
 
@@ -97,7 +97,7 @@ interface FrequentlyAskedQuestionsProps {}
 const FrequentlyAskedQuestions: FC<FrequentlyAskedQuestionsProps> = ({}) => {
   return (
     <div className=" bggrid  min-h-screen w-full pt-16">
-      <Card className=" flex bg-inherit   justify-center  flex-col lg:flex-row h-full w-full">
+      <Card className=" flex bg-inherit   justify-center  border-none shadow-none flex-col lg:flex-row h-full w-full">
         <CardHeader className="lg:w-1/3">
           <CardTitle className=" text-4xl font-semibold ">
             Frequently Asked Questions

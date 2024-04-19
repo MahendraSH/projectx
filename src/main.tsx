@@ -63,7 +63,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                 content="https://metatags.io/images/meta-tags.png"
               />
             </Helmet>
-            <App />
+            <section className="lg:px-20 bggrad w-full h-full">
+              <App />
+            </section>
             <Toaster
               gutter={10}
               position="bottom-center"
@@ -77,5 +79,5 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         </ThemeProvider>
       </Provider>
     </HelmetProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
 );

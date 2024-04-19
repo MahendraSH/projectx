@@ -10,11 +10,6 @@ import { Navigate, useParams } from "react-router-dom";
 interface AccountPageProps {}
 const sidebarNavItems = [
   {
-    title: "Profile",
-    href: "/account/profile",
-    Icon: UserIcon,
-  },
-  {
     title: "Orders",
     href: "/account/orders",
     Icon: ShoppingBagIcon,
@@ -34,14 +29,13 @@ const sidebarNavItems = [
 const AccountPage: FC<AccountPageProps> = ({}) => {
   const params = useParams();
   return (
-    <div className="flex flex-col space-y-8 lg:flex-row lg:space-x-12 lg:space-y-0 min-h-screen">
+    <div className="flex flex-col space-y-8 lg:flex-row lg:space-x-12 lg:space-y-0 min-h-screen lg:px-16 ">
       <aside className="-mx-4 lg:w-1/5">
         <SidebarNav items={sidebarNavItems} />
       </aside>
       <div className="flex-1 lg:w-4/5 px-4">
         {params.pageId === "orders" && <Orders />}
         {params.pageId === "favorities" && <Favorities />}
-        {params.pageId === "profile" && <Profile />}
         {params.pageId !== "orders" &&
           params.pageId !== "favorities" &&
           params.pageId !== "profile" && <Navigate to={"/page-not-found"} />}

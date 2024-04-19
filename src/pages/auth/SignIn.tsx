@@ -2,7 +2,7 @@ import { useSingInAuthMutation } from "@/app/features/authApiSlice";
 import { signInWithGoogle } from "@/firebaseConfig";
 import { setUser } from "@/app/features/userAuthSlice";
 import { useAppDispatch } from "@/app/hooks";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -20,6 +20,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { z } from "zod";
+import { cn } from "@/lib/utils";
 
 const formSchema = z.object({
   email: z.string().email().min(1).max(50),
@@ -98,8 +99,8 @@ const SignIn: FC<SignInProps> = () => {
   }
 
   return (
-    <div className="w-full flex  justify-center items-center pt-16 gap-y-6 rounded-lg py-16 ">
-      <div className=" flex flex-col  bg-background rounded-md p-8 md:w-[calc(50%)] w-full text-card-foreground space-y-8">
+    <div className="w-full flex  justify-center lg:items-start lg:py-4 items-center  gap-y-6 rounded-lg min-h-screen ">
+      <div className=" flex flex-col  bg-card  p-8 w-full text-card-foreground space-y-8 rounded-lg lg:ring-2">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmitHandler)}
@@ -137,7 +138,7 @@ const SignIn: FC<SignInProps> = () => {
                       <Input
                         placeholder="password"
                         {...field}
-                        type="password"
+                        type={showPassword ? "text" : "password"}
                         autoComplete="off" // corrected from "false"
                         className="h-12"
                       />
@@ -189,13 +190,16 @@ const SignIn: FC<SignInProps> = () => {
             </Button>
             <div className="w-full flex flex-row gap-x-2 mt-2">
               <Link to="/auth/register" className="text-sm">
-                Don't have an account? Sign Up
+                Don't have an account?
+                <Button variant={"link"}>Sign Up</Button>
               </Link>
               <Link
                 to="/auth/register"
                 className="text-sm ml-auto text-blue-500"
               >
-                <span className="underline space-x-2">Forgot Password</span>
+                <span className={cn(buttonVariants({ variant: "link" }))}>
+                  Forgot Password
+                </span>
               </Link>
             </div>
           </div>

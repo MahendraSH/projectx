@@ -14,13 +14,20 @@ const LandingPage: FC<LandingPageProps> = ({}) => {
   }
   return (
     <>
-      <div className="w-full min-h-[calc(85vh)] flex justify-center items-center lg:items-start  lg:justify-stretch py-16 gap-7">
+      <div className="w-full min-h-[calc(85vh)] lg:container flex justify-center items-center lg:items-start  lg:justify-stretch py-16 gap-7">
         <div className=" md:w-2/3  w-full ">
           <Heading />
         </div>
         <div className="w-1/3 hidden lg:flex ">
-          <Animation />
-          <Animation isReverse={true} />
+          {/* <Animation /> */}
+          {/* <Animation isReverse={true} /> */}
+          <div className=" w-96 border-primary bg-primary overflow-hidden rounded-full border-2 border-dashed wavy-border flex items-center justify-center animate-spin  ">
+            <img
+              src="/landing/AI_MakingShirt_bg_remove.png"
+              alt="AI_MakingShirt"
+              className="w-96 p-5 aspect-square ease-in-out  duration-[4000] repeat-infinite"
+            />
+          </div>
         </div>
       </div>
       <Category />

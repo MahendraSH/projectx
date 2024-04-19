@@ -24,7 +24,7 @@ const Category: FC<CategoryProps> = ({}) => {
     }
   }, []);
   return (
-    <Card className=" w-full p-2 flex flex-col justify-center items-center bggrad rounded-none">
+    <div className=" w-full p-2 flex flex-col justify-start items-start bggrad rounded-md border-none shadow-none">
       <div id="shop" ref={shopRef}>
         {" "}
       </div>
@@ -40,7 +40,7 @@ const Category: FC<CategoryProps> = ({}) => {
         {isSuccess &&
           data.map((item, index) => (
             <div
-              className="flex flex-col justify-center items-baseline "
+              className="flex flex-col justify-start items-start mr-auto "
               key={index}
             >
               <CardHeader>
@@ -53,7 +53,7 @@ const Category: FC<CategoryProps> = ({}) => {
             </div>
           ))}
       </CardContent>
-    </Card>
+    </div>
   );
 };
 

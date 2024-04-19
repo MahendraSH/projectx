@@ -1,5 +1,7 @@
+import { setUser } from "@/app/features/userAuthSlice";
 import { useAppDispatch, useAppSelector } from "@/app/hooks";
 import { Button } from "@/components/ui/button";
+import { signOutUser } from "@/firebaseConfig";
 import { navLink } from "@/utils/nav-link";
 import { ShoppingCart } from "lucide-react";
 import { FC } from "react";
@@ -8,9 +10,6 @@ import ContactUs from "../landing-components/contact-us";
 import { ModeToggle } from "../mode-toggle";
 import Logo from "./logo";
 import Sidebar from "./sidebar";
-import { setUser } from "@/app/features/userAuthSlice";
-import { signOut } from "firebase/auth";
-import { signOutUser } from "@/firebaseConfig";
 interface NavbarProps {}
 
 const Navbar: FC<NavbarProps> = ({}) => {
@@ -35,7 +34,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
     );
   };
   return (
-    <div className="flex justify-center items-center h-16    shadow-md shadow-secondary w-full bggrad ">
+    <div className="flex justify-center items-center h-16 lg:h-20    shadow-md shadow-secondary w-full bggrad ">
       <Logo />
       <div className=" ml-auto  pr-4  gap-x-5 hidden lg:flex">
         {navLink.map((item) =>
@@ -65,8 +64,11 @@ const Navbar: FC<NavbarProps> = ({}) => {
           <Button
             variant={"outline"}
             size={"icon"}
-            className=" w-10 h-10 mx-2 border-x-primary  border-t-blue-400 border-b-blue-300 ring-1"
+            className=" w-10 h-10 mx-2 border-x-primary  relative  border-t-blue-400 border-b-blue-300 ring-1"
           >
+            <span className=" p-1.5 py-1 rounded-full absolute bg-muted-foreground text-muted  text-xs top-0 right-0 -translate-y-3 translate-x-3">
+              3
+            </span>
             <ShoppingCart className=" w-6 h-6   " />
           </Button>
         </Link>

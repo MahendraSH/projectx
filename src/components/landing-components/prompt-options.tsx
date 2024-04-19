@@ -27,6 +27,7 @@ import { useNavigate } from "react-router-dom";
 import { Card } from "../ui/card";
 import { useAppDispatch } from "@/app/hooks";
 import { setLoading } from "@/app/features/loadingSlice";
+import { cn } from "@/lib/utils";
 interface PromptPotionsProps {
   isOpen: boolean;
   prompt: string;
@@ -99,19 +100,53 @@ const PromptPotions: FC<PromptPotionsProps> = ({ isOpen, prompt, onClose }) => {
                         defaultValue={field.value}
                         className="flex  gap-x-4"
                       >
-                        <Card className="w-32 aspect-square">
-                          <RadioGroupItem className="w-5 h-5" value="shirt" />
-                          <FormLabel className="font-normal">Shirt</FormLabel>
-                        </Card>
-                        <Card className="w-32 aspect-square">
-                          <RadioGroupItem
-                            className="w-5 h-5"
-                            value="full-shirt"
-                          />
-                          <FormLabel className="font-normal">
-                            Full Shirt
-                          </FormLabel>
-                        </Card>
+                        <FormItem>
+                          <Card
+                            className={cn(
+                              "w-32 aspect-square hover:p-1 ",
+                              field.value === "t-shirt" &&
+                                "ring-4 outline-indigo-500 p-1"
+                            )}
+                          >
+                            <FormControl>
+                              <RadioGroupItem
+                                className="w-5 h-5 hidden"
+                                value="t-shirt"
+                                checked={field.value === "t-shirt"}
+                              />
+                            </FormControl>
+                            <FormLabel className=" w-full h-full cursor-pointer">
+                              <img
+                                className=" w-full h-full"
+                                src="/options/t-shit.jpg"
+                                alt="t-shirt"
+                              />
+                            </FormLabel>
+                          </Card>
+                        </FormItem>
+                        <FormItem>
+                          <Card
+                            className={cn(
+                              "w-32 aspect-square hover:p-1 ",
+                              field.value === "full" &&
+                                "ring-4 outline-indigo-500 p-1"
+                            )}
+                          >
+                            <FormControl>
+                              <RadioGroupItem
+                                className="w-5 h-5 hidden"
+                                value="full"
+                              />
+                            </FormControl>
+                            <FormLabel className="w-full h-full cursor-pointer">
+                              <img
+                                className=" w-full h-full"
+                                src="/options/full.jpg"
+                                alt="full"
+                              />
+                            </FormLabel>
+                          </Card>
+                        </FormItem>
                       </RadioGroup>
                     </Card>
                   </FormControl>
@@ -132,14 +167,53 @@ const PromptPotions: FC<PromptPotionsProps> = ({ isOpen, prompt, onClose }) => {
                         defaultValue={field.value}
                         className="flex  gap-x-4"
                       >
-                        <Card className="w-32 aspect-square">
-                          <RadioGroupItem className="w-5 h-5" value="male" />
-                          <FormLabel className="font-normal">Male</FormLabel>
-                        </Card>
-                        <Card className="w-32 aspect-square">
-                          <RadioGroupItem className="w-5 h-5" value="female" />
-                          <FormLabel className="font-normal">Female</FormLabel>
-                        </Card>
+                        <FormItem>
+                          {" "}
+                          <Card
+                            className={cn(
+                              "w-32 aspect-square hover:p-1 ",
+                              field.value === "male" &&
+                                "ring-4 outline-indigo-500 p-1"
+                            )}
+                          >
+                            <FormControl>
+                              <RadioGroupItem
+                                className="w-5 h-5 hidden"
+                                value="male"
+                              />
+                            </FormControl>
+                            <FormLabel className="w-full h-full cursor-pointer">
+                              <img
+                                className=" w-full h-full"
+                                src="/options/male.jpg"
+                                alt="male"
+                              />
+                            </FormLabel>
+                          </Card>
+                        </FormItem>
+                        <FormItem>
+                          <Card
+                            className={cn(
+                              "w-32 aspect-square hover:p-1 ",
+                              field.value === "female" &&
+                                "ring-4 outline-indigo-500 p-1 "
+                            )}
+                          >
+                            <FormControl>
+                              <RadioGroupItem
+                                className="w-5 h-5 hidden"
+                                value="female"
+                              />
+                            </FormControl>
+                            <FormLabel className="w-full h-full cursor-pointer">
+                              <img
+                                className=" w-full h-full"
+                                src="/options/female.jpg"
+                                alt="female"
+                              />
+                            </FormLabel>
+                          </Card>
+                        </FormItem>
                       </RadioGroup>
                     </Card>
                   </FormControl>
@@ -160,24 +234,52 @@ const PromptPotions: FC<PromptPotionsProps> = ({ isOpen, prompt, onClose }) => {
                         defaultValue={field.value}
                         className="flex  gap-x-4"
                       >
-                        <Card className="w-32 aspect-square">
-                          <RadioGroupItem
-                            className="w-5 h-5"
-                            value="ALL_OVER_PRINT"
-                          />
-                          <FormLabel className="font-normal">
-                            ALL_OVER_PRINT
-                          </FormLabel>
-                        </Card>
-                        <Card className="w-32 aspect-square">
-                          <RadioGroupItem
-                            className="w-5 h-5"
-                            value="option-2"
-                          />
-                          <FormLabel className="font-normal">
-                            Option 2
-                          </FormLabel>
-                        </Card>
+                        <FormItem>
+                          <Card
+                            className={cn(
+                              "w-32 aspect-square hover:p-1 ",
+                              field.value === "ALL_OVER_PRINT" &&
+                                "ring-4 outline-indigo-500 p-1"
+                            )}
+                          >
+                            <FormControl>
+                              <RadioGroupItem
+                                className="w-5 h-5 hidden"
+                                value="ALL_OVER_PRINT"
+                              />
+                            </FormControl>{" "}
+                            <FormLabel className="w-full h-full cursor-pointer">
+                              <img
+                                className=" w-full h-full"
+                                src="/options/F.png"
+                                alt="full"
+                              />
+                            </FormLabel>
+                          </Card>
+                        </FormItem>
+                        <FormItem>
+                          <Card
+                            className={cn(
+                              "w-32 aspect-square hover:p-1 ",
+                              field.value === "HALF_PRINT" &&
+                                "ring-4 outline-indigo-500 p-1"
+                            )}
+                          >
+                            <FormControl>
+                              <RadioGroupItem
+                                className="w-5 h-5 hidden"
+                                value="HALF_PRINT"
+                              />
+                            </FormControl>
+                            <FormLabel className="w-full h-full cursor-pointer">
+                              <img
+                                className=" w-full h-full"
+                                src="/options/S.png"
+                                alt="S"
+                              />
+                            </FormLabel>
+                          </Card>
+                        </FormItem>
                       </RadioGroup>
                     </Card>
                   </FormControl>

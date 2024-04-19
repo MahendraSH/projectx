@@ -99,8 +99,8 @@ const SignUp: FC<SignUpProps> = () => {
   }
 
   return (
-    <div className="w-full flex justify-center items-center pt-16 gap-y-6 rounded-lg py-16">
-      <div className=" flex flex-col  bg-background rounded-md p-8 md:w-[calc(50%)] w-full text-card-foreground space-y-8">
+    <div className="w-full flex  justify-center lg:items-start lg:py-4 items-center  gap-y-6 rounded-lg min-h-screen ">
+      <div className=" flex flex-col  bg-card  p-8 w-full text-card-foreground space-y-8 rounded-lg lg:ring-2">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmitHandler)}
@@ -138,7 +138,7 @@ const SignUp: FC<SignUpProps> = () => {
                       <Input
                         placeholder="password"
                         {...field}
-                        type="password"
+                        type={showPassword ? "text" : "password"}
                         autoComplete="off" // corrected from "false"
                         className="h-12"
                       />
@@ -192,12 +192,9 @@ const SignUp: FC<SignUpProps> = () => {
           </Button>
           <div className="w-full flex flex-row gap-x-2 mt-2">
             <Link to="/auth/login" className="text-sm">
-              All ready have an account? Sign In
+              All ready have an account?
+              <Button variant={"link"}>Sign In</Button>
             </Link>
-            <Link
-              to="/auth/sign-up"
-              className="text-sm ml-auto text-blue-500"
-            ></Link>
           </div>
         </div>
       </div>
