@@ -51,6 +51,7 @@ const ProductByIdPage: FC<ProductByIdPageProps> = ({}) => {
           quantity: quantityValue,
           productMeta: {
             size: sizeValue,
+            color: "#498fff",
 
             gender: String(data?.gender),
           },
@@ -73,6 +74,7 @@ const ProductByIdPage: FC<ProductByIdPageProps> = ({}) => {
           productMeta: {
             size: String(sizeValue),
             gender: String(data?.gender),
+            color: "#498fff",
           },
         },
       })

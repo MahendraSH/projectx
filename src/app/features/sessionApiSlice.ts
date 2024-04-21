@@ -2,6 +2,12 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const api = import.meta.env.VITE_APP_API_URL;
 
+interface Image {
+  imageId: string;
+  imageUrl: string;
+  createdAt: number;
+}
+
 interface Product {
   productId: string;
   productType: string;
@@ -16,47 +22,27 @@ interface Product {
   gender: string;
 }
 
-interface Image {
-  imageId: string;
-  imageUrl: string;
-  createdAt: number;
-  metaData: {
-    printType: string;
-    gender: string;
-    model: string;
-    prompt: string;
-    timestamp: number;
-  };
-}
-
-export interface CartEntry {
-  productId: string;
-  product: Product;
-  productMeta: {
-    size: string;
-    gender: string;
-  };
-  quantity: number;
-}
-
-export interface Favourite {
-  productId: string;
-  product: Product;
-  productMeta: {
-    size: string;
-    gender: string;
-  };
-  quantity: number;
-}
-
-interface ApiResponse {
-  favourites: Record<string, Favourite>;
-  cartEntries: Record<string, CartEntry>;
-}
-
-export interface ProductMeta {
+interface ProductMeta {
   size: string;
   gender: string;
+  color: string | null;
+}
+
+export interface Entry {
+  productId: string;
+  product: Product;
+  productMeta: ProductMeta;
+  quantity: number;
+}
+
+export interface Bucket {
+  entries: Entry[];
+  bucketSize: number;
+}
+
+export interface ApiResponse {
+  favouriteEntries: Bucket;
+  cartEntries: Bucket;
 }
 
 export interface AddToCartRequest {

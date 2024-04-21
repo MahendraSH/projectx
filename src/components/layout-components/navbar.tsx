@@ -14,6 +14,7 @@ interface NavbarProps {}
 
 const Navbar: FC<NavbarProps> = ({}) => {
   const user = useAppSelector((state) => state.user);
+  const data = useAppSelector((state) => state.session);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const handleLogout = async () => {
@@ -66,9 +67,11 @@ const Navbar: FC<NavbarProps> = ({}) => {
             size={"icon"}
             className=" w-10 h-10 mx-2 border-x-primary  relative  border-t-blue-400 border-b-blue-300 ring-1"
           >
-            <span className=" p-1.5 py-1 rounded-full absolute bg-muted-foreground text-muted  text-xs top-0 right-0 -translate-y-3 translate-x-3">
-              3
-            </span>
+            {data?.cartEntries?.bucketSize && (
+              <span className=" p-1.5 py-1 rounded-full absolute bg-muted-foreground text-muted  text-xs top-0 right-0 -translate-y-3 translate-x-3">
+                3
+              </span>
+            )}
             <ShoppingCart className=" w-6 h-6   " />
           </Button>
         </Link>
@@ -95,8 +98,14 @@ const Navbar: FC<NavbarProps> = ({}) => {
           <Button
             variant={"outline"}
             size={"icon"}
-            className=" mx-2 border-x-primary  border-t-blue-400 border-b-blue-300 ring-1"
+            className=" mx-2 border-x-primary  border-t-blue-400 border-b-blue-300 ring-1 relative"
           >
+            {data?.cartEntries?.bucketSize && (
+              <span className=" p-1.5 py-1 rounded-full absolute bg-muted-foreground text-muted  text-xs top-0 right-0 -translate-y-3 translate-x-3">
+                3
+              </span>
+            )}
+
             <ShoppingCart className=" w-5 h-5   " />
           </Button>
         </Link>

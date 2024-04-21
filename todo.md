@@ -1,12 +1,9 @@
 1. contact form
-2. cart
-3. checkout form
-4. account details -> profile details , orders , favorites
-5. categories
-6. shop
-7. landing page animation images
-8. colors , shirts , API ,
-9. payment API
+2. checkout form
+3. account details -> orders
+
+4. colors , shirts , API , other content line sub tiles etc for the website fill all the details ,
+5. payment API
 
 # 1. Contact from
 
@@ -32,4 +29,8 @@ let person = {
 
 ### todo -- me (mahendra )
 
-to do a
+- to make redirct url after login to the previos page
+
+- add color to the product meta data
+- add functionality to zoom image of product
+- list of product images (buttons ) below the Product Image(main)
