@@ -9,7 +9,7 @@ import sizeSlice from "./features/sizeSlice";
 import productQuantity from "./features/productQuantity";
 import { cartAndFavouritesApiSlice } from "./features/sessionApiSlice";
 import { collectionApiSlice } from "./features/collectionsApiSlice";
-
+import sessionDataSlice from "./features/session-data-slice";
 export const store = configureStore({
   reducer: {
     [authApiSlice.reducerPath]: authApiSlice.reducer,
@@ -22,6 +22,7 @@ export const store = configureStore({
     loading: loadingSlice,
     size: sizeSlice,
     quantity: productQuantity,
+    session: sessionDataSlice,
   },
   middleware: (gDM) =>
     gDM().concat(

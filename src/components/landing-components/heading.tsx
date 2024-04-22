@@ -28,9 +28,9 @@ const Heading: FC<HeadingProps> = ({}) => {
             ></motion.div>
             {siteConfig.name}
           </div>
-          <h3 className=" mt-3 text-xl text-primary text-pretty font-normal pt-5">
+          <div className=" mt-3 text-xl text-primary text-pretty font-normal pt-5">
             {siteConfig.subtitle}
-          </h3>
+          </div>
         </CardTitle>
         <CardContent className=" lg:p-0 m-0 lg:mx-16 lg:w-[60%]  w-full  px-8 ">
           <AiPrompt />

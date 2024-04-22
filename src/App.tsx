@@ -6,6 +6,8 @@ import AuthLayout from "@/layouts/AuthLayout";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { LoaderIcon } from "react-hot-toast";
 import PageNotFound from "@/pages/PageNotFound";
+import { useGetSessionDataQuery } from "./app/features/sessionApiSlice";
+import { setSessionData } from "./app/features/session-data-slice";
 
 const LazyMainLayout = React.lazy(() => import("@/layouts/MainLayout"));
 const LazyLadingPage = React.lazy(() => import("@/pages/LandingPage"));
@@ -22,11 +24,18 @@ const LazyLogoutPage = React.lazy(() => import("@/pages/LogoutPage"));
 const App = () => {
   const dispatch = useAppDispatch();
   const user: userResponse = JSON.parse(
-    localStorage.getItem("userDetails") || "{}"
+    localStorage.getItem("userDetails") || "{}",
   );
+  const { data, isLoading, isError, isSuccess, error, status } =
+    useGetSessionDataQuery({ token: user.idToken });
 
   useEffect(() => {
-    dispatch(setUser(user));
+    if (isSuccess) {
+      dispatch(setUser(user));
+      dispatch(setSessionData(data));
+    } else {
+      dispatch(setUser({} as userResponse));
+    }
   }, [dispatch, user]);
 
   return (
