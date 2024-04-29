@@ -4,6 +4,7 @@
 
 4. colors , shirts , API , other content line sub tiles etc for the website fill all the details ,
 5. payment API
+6. add error handling in back end
 
 # 1. Contact from
 
@@ -29,7 +30,13 @@ let person = {
 
 ### todo -- me (mahendra )
 
-- to make redirct url after login to the previos page
+- to check the user is logged in or not during product (
+  is added to cart
+  is added to fav
+  is going to buy the product
+  and also if 401 auth error then go to login page
+  add error handling to the front end
+  )
 
 - add color to the product meta data
 - add functionality to zoom image of product
