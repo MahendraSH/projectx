@@ -8,6 +8,7 @@ import ColorForm from "@/components/produt-components/color-form";
 import ImageCard from "@/components/produt-components/image-card";
 import ProductQuantity from "@/components/produt-components/product-quantity";
 import ProductSize from "@/components/produt-components/product-size";
+import ZoomProductImage from "@/components/produt-components/zoom-productImage";
 import { Button } from "@/components/ui/button";
 import { Card, CardDescription } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
@@ -115,15 +116,12 @@ const ProductByIdPage: FC<ProductByIdPageProps> = ({}) => {
                         >
                           <ShoppingCart className="size-5" />{" "}
                         </Button>
-                        <Button
-                          variant={"secondary"}
-                          size={"actions"}
-                          onClick={() =>
-                            console.log("open max size of Shirt 96 * 96")
-                          }
-                        >
-                          <ZoomIn className=" size-5" />
-                        </Button>
+                        <ZoomProductImage
+                          image={{
+                            imageUrl: data.images[0].imageUrl,
+                            alt: data.title,
+                          }}
+                        />
                       </div>
 
                       <ImageCard
@@ -180,25 +178,32 @@ const ProductByIdPage: FC<ProductByIdPageProps> = ({}) => {
                       <Card className=" p-2 rounded-sm flex flex-col space-y-5  w-full border-none shadow-none">
                         <Label className=" "> Prompt</Label>
                         <Textarea value={data.prompt} className="resize-none" />
-                        <tr className="border-none space-y-5">
-                          <td>
-                            <ProductQuantity />
-                          </td>
-                        </tr>
+                        <table className="table-auto  space-y-8 ">
+                          {" "}
+                          <tbody>
+                            <tr className="border-none space-y-5">
+                              <td>
+                                <ProductQuantity />
+                              </td>
+                            </tr>
+                          </tbody>{" "}
+                        </table>
                       </Card>
                       <Card className=" p-2 rounded-sm flex flex-col space-y-5 w-full  border-none shadow-none">
                         <table className="table-auto  space-y-8   ">
-                          <tr className="border-none">
-                            <td>
-                              <ColorForm colors={colors} />
-                            </td>
-                          </tr>
+                          <tbody>
+                            <tr className="border-none">
+                              <td>
+                                <ColorForm colors={colors} />
+                              </td>
+                            </tr>
 
-                          <tr className="border-none">
-                            <td>
-                              <ProductSize />
-                            </td>
-                          </tr>
+                            <tr className="border-none">
+                              <td>
+                                <ProductSize />
+                              </td>
+                            </tr>
+                          </tbody>
                         </table>
                       </Card>
                     </div>
@@ -240,9 +245,12 @@ const ProductByIdPage: FC<ProductByIdPageProps> = ({}) => {
                       >
                         <ShoppingCart className="size-5" />{" "}
                       </Button>
-                      <Button variant={"secondary"} size={"actions"}>
-                        <ZoomIn className=" size-5" />
-                      </Button>
+                      <ZoomProductImage
+                        image={{
+                          imageUrl: data.images[0].imageUrl,
+                          alt: data.title,
+                        }}
+                      />
                     </div>
 
                     <ImageCard
