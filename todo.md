@@ -8,7 +8,7 @@
 # 1. Contact from
 
 ```js
-{firstName: 'Jhon', lastName: 'DOe', email: 'TestingAuth@gmail.com', feedback: 'ajf;asdfkd'
+{firstName: 'Jhon', lastName: 'DOe', email: 'TestingAuth@gmail.com', feedback: 'ajf;asdfkd' }
 ```
 
 # 2. Checkout from
