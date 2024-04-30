@@ -21,16 +21,17 @@ const LandingPage: FC<LandingPageProps> = ({}) => {
         <div className="w-1/3 hidden lg:flex ">
           {/* <Animation /> */}
           {/* <Animation isReverse={true} /> */}
-          <div className=" w-96 border-primary bg-primary overflow-hidden rounded-full border-2 border-dashed wavy-border flex items-center justify-center animate-spin  ">
+          <div className=" w-96 border-primary bg-primary overflow-hidden transition-all rounded-full border-2 border-dashed wavy-border flex items-center justify-center animate-spin  ">
             <img
               src="/landing/AI_MakingShirt_bg_remove.png"
               alt="AI_MakingShirt"
-              className="w-96 p-5 aspect-square ease-in-out  duration-[4000] repeat-infinite"
+              className="w-96 p-5 aspect-square ease-in-out transition-all  duration-[4000] repeat-infinite"
             />
           </div>
         </div>
       </div>
       <Category />
+      {/* <BotLoading/> */}
     </>
   );
 };
