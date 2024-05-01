@@ -25,7 +25,7 @@ const LandingPage: FC<LandingPageProps> = ({}) => {
             <img
               src="/landing/AI_MakingShirt_bg_remove.png"
               alt="AI_MakingShirt"
-              className="w-96 p-5 aspect-square ease-in-out  duration-[4000] repeat-infinite"
+              className="w-96 p-5 aspect-square ease-in-out duration-&lsqb;4000&rsqb; repeat-infinite"
             />
           </div>
         </div>
