@@ -41,3 +41,18 @@ let person = {
 - add color to the product meta data
 - add functionality to zoom image of product
 - list of product images (buttons ) below the Product Image(main)
+
+---
+
+AI-generated t-shirts
+Custom t-shirt design
+Personalized t-shirts
+Unique t-shirt designs
+T-shirt prompt generator
+Customized apparel
+AI fashion design
+Trendy t-shirt designs
+Fashion-forward t-shirts
+Creative clothing designs
+
+---

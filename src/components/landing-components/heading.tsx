@@ -12,7 +12,7 @@ const Heading: FC<HeadingProps> = ({}) => {
     <Card className=" bg-grad border-none shadow-none w-full my-0 py-0 flex justify-center items-center flex-col ">
       <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="blue" />
       <CardHeader className="mx-auto p-0 m-0 ">
-        <CardTitle className=" lg:px-8  mx-auto lg:mx-10 text-3xl lg:text-5xl bg-clip-text text-transparent bg-gradient-to-br from-primary via-secondary-foreground to-blue-500 ">
+        <CardTitle className=" lg:px-8  prose mx-auto lg:mx-10 text-3xl lg:text-5xl bg-clip-text text-transparent bg-gradient-to-br from-primary via-secondary-foreground to-blue-500 ">
           {siteConfig.description}
           <br />
           <div className=" underline underline-offset-4 lg:no-underline relative dark:text-stone-200 text-stone-800 ">
@@ -28,7 +28,7 @@ const Heading: FC<HeadingProps> = ({}) => {
             ></motion.div>
             {siteConfig.name}
           </div>
-          <div className=" mt-3 text-xl text-primary text-pretty font-normal pt-5">
+          <div className=" mt-3 text-lg  prose text-primary-foreground font-normal pt-5">
             {siteConfig.subtitle}
           </div>
         </CardTitle>

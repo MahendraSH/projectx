@@ -67,7 +67,7 @@ const Footer: FC<FooterProps> = ({}) => {
                       <Link to={item.link} key={item.label}>
                         <Button variant={"link"}>{item.label}</Button>
                       </Link>
-                    )
+                    ),
                   )}
                 </div>
               </CardContent>
@@ -78,36 +78,33 @@ const Footer: FC<FooterProps> = ({}) => {
               </CardHeader>
               <CardContent>
                 <div className=" flex justify-center items-baseline flex-col gap-y-1">
-                  <Button variant={"link"}> Track your order </Button>
-                  <Button variant={"link"}> Shipping policy </Button>
-                  <Button variant={"link"}> Return policy </Button>
-                  <Button variant={"link"}> Privacy policy </Button>
-                  <Button variant={"link"}> Terms & service </Button>
+                  <Link to="/return">
+                    <Button variant={"link"}> Return policy </Button>
+                  </Link>
+                  <Link to="/privacy">
+                    <Button variant={"link"}> Privacy policy </Button>
+                  </Link>
                 </div>
               </CardContent>
             </Card>
             <Card className="lg:w-1/4 md:w-1/2 w-full px-4 flex justify-center items-center flex-col bg-inherit border-none shadow-none ">
               <CardHeader>
-                <CardTitle>CATEGORIES</CardTitle>
+                <CardTitle>More Support </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className=" flex justify-center items-baseline flex-col gap-y-1 max-w-32">
+                <div className=" flex justify-center items-baseline flex-col gap-y-1">
                   {/* contact and Email and Address info */}
                   <Button variant={"link"}>
-                    <PhoneIcon className="size-4 mr-2" /> +489348348934
+                    <PhoneIcon className="size-4 mr-2" /> +916301667568
                   </Button>
                   <Button variant={"link"}>
                     <MailIcon className="size-4 mr-2" />
-                    XXXXXXXXXXXXXXXXX
+                    chandurivarshith1729@gmail.com
                   </Button>
-                  <div className="flex flex-col items-center gap-x-2 w-full">
-                    <Button variant={"link"}>
-                      <MapPinIcon className="size-5 mr-2" />
-                      Address
-                    </Button>
-                    <p className=" text-wrap text-sm ">
-                      Lorem ipsum dolor sit.
-                    </p>
+                  <div className="flex text-sm   justify-start  gap-x-2 text-primary">
+                    <MapPinIcon className="size-10 mr-2" />
+                    Address : Just say "Dilshukh Nagar ka Don" you will reach my
+                    home
                   </div>
                 </div>
               </CardContent>
