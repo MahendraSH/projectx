@@ -21,6 +21,8 @@ const LazyCartPage = React.lazy(() => import("@/pages/CartPage"));
 const LazyAuthOnlyLayout = React.lazy(() => import("@/layouts/AuthOnlyLayout"));
 const LazyCheckOutPage = React.lazy(() => import("@/pages/CheckOutPage"));
 const LazyLogoutPage = React.lazy(() => import("@/pages/LogoutPage"));
+const LazyPrivacy = React.lazy(() => import("@/pages/privacy"));
+const LazyReturn = React.lazy(() => import("@/pages/return"));
 const App = () => {
   const dispatch = useAppDispatch();
   const user: userResponse = JSON.parse(
@@ -59,6 +61,8 @@ const App = () => {
           <Route path="/auth/register" element={<LazySignUp />} />
         </Route>
         <Route path="/about-us" element={<LazyAboutUs />} />
+        <Route path="/privacy" element={<LazyPrivacy />} />
+        <Route path="/return" element={<LazyReturn />} />
         <Route path="/faq" element={<LazyFAQ />} />
         <Route path="/product/:id" element={<LazyProductByIdPage />} />
         <Route
