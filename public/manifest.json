@@ -1,0 +1,13 @@
+{
+  "short_name": "Shirt-AI",
+  "name": "Shirt-AI",
+
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "description": "A brief description of your app",
+  "orientation": "portrait",
+  "scope": "/",
+  "lang": "en-US"
+}
