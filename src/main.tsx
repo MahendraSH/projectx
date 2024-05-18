@@ -9,10 +9,10 @@ import { ThemeProvider } from "@/providers/theme-provider.tsx";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import "@fontsource-variable/inter";
 import { Toaster } from "react-hot-toast";
-import { app } from "@/firebaseConfig.ts";
 import { siteConfig } from "./utils/site-config.tsx";
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
+const root = ReactDOM.createRoot(document.getElementById("root")!);
+root.render(
   <React.StrictMode>
     <HelmetProvider>
       <Provider store={store}>
@@ -21,12 +21,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
             <Helmet>
               <title>{siteConfig.name}</title>
               <meta name="description" content={siteConfig.description} />
-              <meta
-                name="og:title"
-                property="og:title"
-                content={siteConfig.name}
-              />
-              <meta name="robots" content={siteConfig.description} />
+              <link rel="canonical" href={siteConfig.url} />
               <meta
                 name="viewport"
                 content="width=device-width, initial-scale=1"
@@ -35,39 +30,34 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                 http-equiv="Content-Type"
                 content="text/html; charset=utf-8"
               />
-              <link rel="canonical" href={siteConfig.url} />
-              <meta name="language" content="English" />
-              <meta name="author" content="lorem" />
 
-              {/* Open Graph / Facebook --> */}
-              <meta property="og:type" content="website" />
-              <meta
-                property="og:url"
-                content="https://projectx-dev.vercel.app/"
-              />
+              {/* Open Graph Meta Tags */}
+              <meta property="og:title" content={siteConfig.name} />
               <meta
                 property="og:description"
-                content="With Meta Tags you can edit and experiment with your content then preview how your webpage will look on Google, Facebook, Twitter and more!"
+                content={siteConfig.description}
+              />
+              <meta property="og:url" content={siteConfig.url} />
+              <meta property="og:image" content={`${siteConfig.url}/og.png`} />
+              <meta property="og:type" content="website" />
+
+              {/* Twitter Meta Tags */}
+              <meta name="twitter:card" content="summary_large_image" />
+              <meta name="twitter:url" content={siteConfig.url} />
+              <meta name="twitter:title" content={siteConfig.name} />
+              <meta
+                name="twitter:description"
+                content={siteConfig.description}
               />
               <meta
-                property="og:image"
-                content="https://projectx-dev.vercel.app/og.png"
+                name="twitter:image"
+                content={`${siteConfig.url}/twitter-og.png`}
               />
 
-              {/* Twitter */}
-              <meta property="twitter:card" content="summary_large_image" />
-              <meta
-                property="twitter:url"
-                content="https://projectx-dev.vercel.app/"
-              />
-              <meta
-                property="twitter:description"
-                content="With Meta Tags you can edit and experiment with your content then preview how your webpage will look on Google, Facebook, Twitter and more!"
-              />
-              <meta
-                property="twitter:image"
-                content="https://projectx-dev.vercel.app/og.png"
-              />
+              {/* Additional SEO Meta Tags */}
+              <meta name="author" content="Shirt-ai" />
+              <meta name="robots" content="index,follow" />
+              <meta name="language" content="English" />
             </Helmet>
             <section className="lg:px-20 bggrad w-full h-full">
               <App />
