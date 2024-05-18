@@ -49,10 +49,7 @@ root.render(
                 name="twitter:description"
                 content={siteConfig.description}
               />
-              <meta
-                name="twitter:image"
-                content={`${siteConfig.url}/twitter-og.png`}
-              />
+              <meta name="twitter:image" content={`${siteConfig.url}/og.png`} />
 
               {/* Additional SEO Meta Tags */}
               <meta name="author" content="Shirt-ai" />
