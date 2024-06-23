@@ -97,7 +97,7 @@ const Footer: FC<FooterProps> = ({}) => {
                   <Button variant={"link"}>
                     <PhoneIcon className="size-4 mr-2" /> +916301667568
                   </Button>
-                  <Button variant={"link"}>
+                  <Button variant={"link"} size={"sm"}>
                     <MailIcon className="size-4 mr-2" />
                     chandurivarshith1729@gmail.com
                   </Button>
