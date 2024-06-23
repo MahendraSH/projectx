@@ -13,10 +13,7 @@ const Logo: FC<LogoProps> = ({ isFooter = false }) => {
     <>
       {!isFooter ? (
         <Link to={"/"}>
-          <Button
-            variant={"navbar"}
-            className=" text-xl font-semibold ml-0 pl-0"
-          >
+          <Button variant={"navbar"} className=" text-xl font-semibold ">
             <BoxIcon className="size- mr-2" />
             {siteConfig.name}
           </Button>
