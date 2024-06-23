@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
   return (
-    <>
+    <div className="max-w-screen-sm md:max-w-full overflow-hidden">
       {/*<Banner />*/}
 
       <Navbar />
@@ -13,7 +13,7 @@ const MainLayout = () => {
         <Outlet />
       </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

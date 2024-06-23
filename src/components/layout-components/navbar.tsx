@@ -31,7 +31,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
         localId: "",
         refreshToken: "",
         registered: "",
-      }),
+      })
     );
   };
   return (
@@ -45,7 +45,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
             <Link to={item.link} key={item.label}>
               <Button variant="ghost">{item.label}</Button>
             </Link>
-          ),
+          )
         )}
         {user?.idToken ? (
           <>
@@ -77,7 +77,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
         </Link>
         <ModeToggle />
       </div>
-      <div className=" ml-auto  pr-4  gap-x-3 flex lg:hidden">
+      <div className=" ml-auto  pr-2 gap-x-2 flex lg:hidden">
         <Sidebar />
         {user?.idToken ? (
           <Button
