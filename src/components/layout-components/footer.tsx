@@ -19,7 +19,7 @@ const Footer: FC<FooterProps> = ({}) => {
   return (
     <div className=" w-full">
       <footer className="text-foreground body-font bggrad">
-        <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+        <div className="md:container md:px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
           <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left flex flex-col justify-center items-center">
             <Logo isFooter={true} />
             <p className="mt-2  text-lg text-muted-foreground">
