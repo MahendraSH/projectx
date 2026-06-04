@@ -8,22 +8,52 @@ import {
   signOut,
 } from "firebase/auth";
 
+const isMock = import.meta.env.VITE_APP_USE_MOCK_API === "true" || !import.meta.env.VITE_APP_FIREBASE_API_KEY;
+
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_APP_FIREBASE_API_KEY as string,
-  authDomain: import.meta.env.VITE_APP_FIREBASE_AUTH_DOMAIN as string,
-  databaseURL: import.meta.env.VITE_APP_FIREBASE_DATABASE_URL as string,
-  projectId: import.meta.env.VITE_APP_FIREBASE_PROJECT_ID as string,
-  storageBucket: import.meta.env.VITE_APP_FIREBASE_STORAGE_BUCKET as string,
-  messagingSenderId: import.meta.env
-    .VITE_APP_FIREBASE_MESSAGING_SENDER_ID as string,
-  appId: import.meta.env.VITE_APP_FIREBASE_APP_ID as string,
-  measurementId: import.meta.env.VITE_APP_FIREBASE_MEASUREMENT_ID as string,
+  apiKey: (import.meta.env.VITE_APP_FIREBASE_API_KEY || "mock-api-key") as string,
+  authDomain: (import.meta.env.VITE_APP_FIREBASE_AUTH_DOMAIN || "mock-auth-domain") as string,
+  databaseURL: (import.meta.env.VITE_APP_FIREBASE_DATABASE_URL || "mock-db-url") as string,
+  projectId: (import.meta.env.VITE_APP_FIREBASE_PROJECT_ID || "mock-project-id") as string,
+  storageBucket: (import.meta.env.VITE_APP_FIREBASE_STORAGE_BUCKET || "mock-bucket") as string,
+  messagingSenderId: (import.meta.env.VITE_APP_FIREBASE_MESSAGING_SENDER_ID || "mock-sender-id") as string,
+  appId: (import.meta.env.VITE_APP_FIREBASE_APP_ID || "mock-app-id") as string,
+  measurementId: (import.meta.env.VITE_APP_FIREBASE_MEASUREMENT_ID || "mock-measurement-id") as string,
 };
 
-// Initialize Firebase app
-export const app = initializeApp(firebaseConfig);
+// Initialize Firebase app - only if keys exist to avoid SDK crashes, otherwise mock
+export const app = isMock ? null : initializeApp(firebaseConfig);
 
 export const signInWithGoogle = async (): Promise<UserCredential | null> => {
+  if (isMock) {
+    console.log("Using Mock Google Sign-In");
+    // Simulate delay
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    return {
+      user: {
+        displayName: "John Doe",
+        email: "john.doe@example.com",
+        getIdToken: async () => "mock-google-token-123",
+        refreshToken: "mock-google-refresh-token",
+        emailVerified: true,
+        isAnonymous: false,
+        metadata: {},
+        providerData: [],
+        tenantId: null,
+        delete: async () => {},
+        getIdTokenResult: async () => ({ token: "mock-google-token-123", expirationTime: "", authTime: "", issuedAtTime: "", signInProvider: "google.com", claims: {} }),
+        reload: async () => {},
+        toJSON: () => ({}),
+        phoneNumber: null,
+        photoURL: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=150",
+        providerId: "google.com",
+        uid: "user-jane-doe", // Match with default test user in mockData.ts
+      },
+      providerId: "google.com",
+      operationType: "signIn",
+    } as unknown as UserCredential;
+  }
+
   const auth = getAuth();
   const provider = new GoogleAuthProvider();
   try {
@@ -40,6 +70,10 @@ export const signInWithGoogle = async (): Promise<UserCredential | null> => {
 };
 
 export const signOutUser = async (): Promise<void> => {
+  if (isMock) {
+    console.log("Mock User signed out successfully");
+    return;
+  }
   const auth = getAuth();
   try {
     await signOut(auth);
@@ -52,6 +86,10 @@ export const signOutUser = async (): Promise<void> => {
   }
 };
 export const getImageURL = async (imagePath: string | null) => {
+  if (isMock) {
+    return imagePath;
+  }
+  if (!app) return null;
   const storage = getStorage(app);
   const imageRef = ref(storage, imagePath || "");
 

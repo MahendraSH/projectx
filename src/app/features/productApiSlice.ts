@@ -1,4 +1,5 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi } from "@reduxjs/toolkit/query/react";
+import { getAppBaseQuery } from "../apiHelper";
 const api = import.meta.env.VITE_APP_API_URL;
 
 interface Image {
@@ -32,7 +33,7 @@ export interface Product {
 export const productApiSlice = createApi({
   reducerPath: "productApiSlice",
 
-  baseQuery: fetchBaseQuery({ baseUrl: api, validateStatus: () => true }),
+  baseQuery: getAppBaseQuery(api),
   tagTypes: ["product"],
   endpoints: (builder) => ({
     getProductById: builder.query<Product, { productId: string }>({

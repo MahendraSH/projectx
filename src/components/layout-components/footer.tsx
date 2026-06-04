@@ -50,7 +50,7 @@ const Footer: FC<FooterProps> = ({}) => {
             </div>
           </div>
           <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left justify-center items-baseline text-center">
-            <Card className="lg:w-1/4 md:w-1/2 w-full px-4 flex justify-center items-center flex-col bg-inherit border-none shadow-none ">
+            <Card className="lg:w-1/3 md:w-1/2 w-full px-4 flex justify-center items-center flex-col bg-inherit border-none shadow-none ">
               <CardHeader>
                 <CardTitle>Quick Links </CardTitle>
               </CardHeader>
@@ -72,7 +72,7 @@ const Footer: FC<FooterProps> = ({}) => {
                 </div>
               </CardContent>
             </Card>
-            <Card className="lg:w-1/4 md:w-1/2 w-full px-4 flex justify-center items-center flex-col bg-inherit border-none shadow-none ">
+            <Card className="lg:w-1/3 md:w-1/2 w-full px-4 flex justify-center items-center flex-col bg-inherit border-none shadow-none ">
               <CardHeader>
                 <CardTitle> Support </CardTitle>
               </CardHeader>
@@ -87,41 +87,19 @@ const Footer: FC<FooterProps> = ({}) => {
                 </div>
               </CardContent>
             </Card>
-            <Card className="lg:w-1/4 md:w-1/2 w-full px-4 flex justify-center items-center flex-col bg-inherit border-none shadow-none ">
-              <CardHeader>
-                <CardTitle>More Support </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className=" flex justify-center items-baseline flex-col gap-y-1">
-                  {/* contact and Email and Address info */}
-                  <Button variant={"link"}>
-                    <PhoneIcon className="size-4 mr-2" /> +916301667568
-                  </Button>
-                  <Button variant={"link"} size={"sm"}>
-                    <MailIcon className="size-4 mr-2" />
-                    chandurivarshith1729@gmail.com
-                  </Button>
-                  <div className="flex text-sm   justify-start  gap-x-2 text-primary">
-                    <MapPinIcon className="size-10 mr-2" />
-                    Address : Just say "Dilshukh Nagar ka Don" you will reach my
-                    home
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </div>
         <div className="bg-background text-foreground lg: pd-4 min-h-16">
           <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
             <p className=" text-foreground  text-sm text-center sm:text-left">
-              © {new Date().getFullYear()} {siteConfig.name} —
+              © {new Date().getFullYear()} {siteConfig.name} — Built by{" "}
               <a
-                href="https://twitter.com/knyttneve"
+                href="https://mahendrash.vercel.app/"
                 rel="noopener noreferrer"
-                className="text-muted-foreground    ml-1"
+                className="text-primary hover:underline font-semibold"
                 target="_blank"
               >
-                @ Lorem.
+                Mahendra S H
               </a>
             </p>
             <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start gap-5">

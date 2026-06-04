@@ -1,4 +1,5 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi } from "@reduxjs/toolkit/query/react";
+import { getAppBaseQuery } from "../apiHelper";
 
 const api = import.meta.env.VITE_APP_API_URL;
 
@@ -20,7 +21,7 @@ export interface userResponse {
 
 export const authApiSlice = createApi({
   reducerPath: "authApiSlice",
-  baseQuery: fetchBaseQuery({ baseUrl: api, validateStatus: () => true }),
+  baseQuery: getAppBaseQuery(api),
 
   tagTypes: ["auth"],
   endpoints: (builder) => ({

@@ -1,4 +1,5 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi } from "@reduxjs/toolkit/query/react";
+import { getAppBaseQuery } from "../apiHelper";
 
 // Define the API base URL
 const apiUrl = import.meta.env.VITE_APP_API_URL;
@@ -43,7 +44,7 @@ export interface Collection {
 // Create the API slice
 export const collectionApiSlice = createApi({
   reducerPath: "collectionApi",
-  baseQuery: fetchBaseQuery({ baseUrl: apiUrl }),
+  baseQuery: getAppBaseQuery(apiUrl),
 
   endpoints: (builder) => ({
     getActiveCollections: builder.query<Collection[], void>({
